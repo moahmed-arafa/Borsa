@@ -1,0 +1,38 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+<h1>
+    Summery
+</h1>
+    <ul>
+        <li><a href="/users">GetAllUsers()</a></li>
+        <li><a href="/owners">GetAllOwners()</a></li>
+        <li><a href="/GetAllShops/JSON">GetAllShops()</a></li>
+        <li><a href="/GetCategories/JSON">GetCategories()</a></li>
+        <li><a href="/GetSubCategories/JSON">GetSubCategories()</a></li>
+        <li><a href="/GetSubCategoriesById/1/JSON">GetSubCategoriesById(cat_id)</a></li>
+        <li><a href="/GetCategoryById/1/JSON">GetCategoryById(cat_id)</a></li>
+        <li><a href="/editCategory/1/">EditCategory(cat_id)</a></li>
+        <li><a href="/newCategory/">newCategory(cat_id)</a></li>
+        <li><a href="/editSubCategory/1/">EditSubCategory(cat_id)</a></li>
+        <li><a href="/newSubCategory/1/">newSubCategory(parentCat_id)</a></li>
+        <li><a href="/newShop/">newShop()</a></li>
+        <li><a href="/editShop/1">editShop(shop_id)</a></li>
+        <li><a href="/GetShop/1/JSON">GetShop()</a></li>
+        <li><a href="/GetShopItems/1/JSON">GetShopItemsJSON(shop_id)</a></li>
+        <li><a href="/GetShopItems/1/">GetShopItems(shop_id)</a></li>
+        <li><a href="/GetItem/1/JSON">GetItemJSON(item_id)</a></li>
+        <li><a href="/GetItemByCategory/1/JSON">GetItemByCategory(cat_id)</a></li>
+        <li><a href="/newShopItem/1/">newShopItem(shop_id)</a></li>
+        <li><a href="/editShopItem/2/1/">editShopItem(shop_id, item_id)</a></li>
+        <li><a href="/deleteShopItem/2/1">deleteShopItem(shop_id, item_id)</a></li>
+        <li><a href="/login/">login(username, password)</a></li>
+        <li><a href="/signup/">signup(username, password)</a></li>
+        <li><a href="/addToShopCart/">addToShopCart(user_id, item_id)</a></li>
+        <li><a href="/getUserShopCart/">getUserShopCart(user_id)</a></li>
+    </ul>
+</body>
+</html>

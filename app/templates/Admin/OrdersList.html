@@ -1,0 +1,25 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+
+<h1>
+    {{ shop.shop_name }} Orders
+</h1>
+
+{% for order in orders %}
+<br>
+<br>
+
+<h2>{{ order.item.name }} ( ${{ order.item.price }} )</h2>
+<p>Orderd Quantity: {{ order.quantity}}</p>
+<p>Shop: {{ order.item.shop.id}}</p>
+
+
+<br>
+
+{% endfor %}
+</body>
+</html>

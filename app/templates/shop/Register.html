@@ -1,0 +1,62 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+<h1>
+    Create New Shop | تسجيل محل جديد
+</h1>
+
+<form action="{{url_for('website.sign_up_shop')}}" method="post" enctype=multipart/form-data>
+
+    <p>Shop Name | إسم المحل</p>
+    <input type="text" size="30" name="name" required="required">
+
+    <p>Owner Name | إسم صاحب المحل</p>
+    <input type="text" size="30" name="owner" required="required">
+
+    <p>Description | الوصف</p>
+    <input type="text" size="30" name="description" required="required">
+
+    <p>Email | البريد الإلكترونى</p>
+    <input type="text" size="30" name="email" required="required">
+
+    <p>Password | كلمة المرور</p>
+    <input type="text" size="30" name="password" required="required">
+
+    <p>mobile | الهاتف</p>
+    <input type="text" size="30" name="mobile" required="required">
+
+    <p>Address | العنوان</p>
+    <input type="text" size="30" name="shop_address" required="required">
+
+    <p>Please Browse Photo from the box below the cope the image generated \n for example 53c23bcs.jpg into the photo
+        field</p>
+
+    <p>من فضلك اضغط على زر
+        Browse
+        لاختيار صورة ثم
+        upload
+        لرفعها بعد ذلك قم بنسخ الكود فى الخانه ادناه مثال
+        53c23bcs.jpg</p>
+    <iframe src="http://bubble.zeowls.com/upload.php"></iframe>
+
+    <p>Photo | صورة</p>
+    <p><input type="text" name="profile_pic" required="required"></p>
+
+    <!--<p>Category</p>-->
+    <!--<select name="cat_id" >-->
+    <!--<option value="" disabled="disabled" selected="selected">Please select a Category</option>-->
+    <!--<option value="1">Books Store</option>-->
+    <!--<option value="2">Cloth Store</option>-->
+    <!--<option value="3">Jewelery Store</option>-->
+    <!--<option value="4">Home Store</option>-->
+    <!--</select>-->
+
+    <input type="submit" value="Register | تسجيل">
+
+</form>
+
+</body>
+</html>

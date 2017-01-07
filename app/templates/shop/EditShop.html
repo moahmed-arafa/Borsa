@@ -1,0 +1,54 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+</head>
+<body>
+<h1>
+    Edit {{ shop.shop_name }}
+    <a href="{{url_for('website.get_shop_items', shop_id=shop.id)}}">Cancel</a>
+</h1>
+
+<form action="{{url_for('website.edit_shop', shop_id=shop.id)}}" method="post" enctype=multipart/form-data>
+
+    <p>Name</p>
+    <input type="text" size="30" name="shop_name" placeholder="{{ shop.shop_name }}">
+
+    <p>Owner</p>
+    <input type="text" size="30" name="owner_name" placeholder="{{ shop.owner_name }}">
+
+    <p>Owner Email</p>
+    <input type="text" size="30" name="owner_email" placeholder="{{ shop.owner_email }}">
+
+    <p>Description</p>
+    <input type="text" size="50" name="description" placeholder="{{ shop.description }}">
+
+    <p>Address</p>
+    <input type="text" size="30" name="shop_address" placeholder="{{ shop.shop_address }}">
+
+    <p>Mobile No.</p>
+    <input type="number" size="11" name="mobile" placeholder="{{ shop.mobile }}">
+
+    <p>Image</p>
+    <img src="http://bubble.zeowls.com/uploads/{{shop.shop_profile_pic}}" alt="Mountain View" style="width:304px;height:228px;">
+    <a href="{{url_for('website.edit_shop_image', shop_id=shop.id)}}">Change</a>
+
+    <p>Location</p>
+
+    <p><input type="number" name="lon" placeholder="{{ shop.longitude }}">
+
+    <p><input type="number" name="lat" placeholder="{{ shop.latitude }}">
+
+        <!--<p>Category</p>-->
+        <!--<select name="cat_id">-->
+        <!--<option value="" disabled="disabled" selected="selected">Please select a Category</option>-->
+        <!--<option value="1">Books Store</option>-->
+        <!--<option value="2">Cloth Store</option>-->
+        <!--<option value="3">Jewelery Store</option>-->
+        <!--<option value="4">Home Store</option>-->
+        <!--</select>-->
+        <input type="submit" class="btn btn-primary btn-block btn-large" value="Edit">
+</form>
+
+</body>
+</html>
