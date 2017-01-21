@@ -158,8 +158,8 @@ def send_push():
 @set_renderers(HTMLRenderer)
 def home():
     if current_user.is_authenticated:
-            agent = db.session.query(models.Agents).filter_by(id=int(current_user.id)).one()
-            return render_template('gentelella/production/index.html', agent=agent)
+        agent = db.session.query(models.Agents).filter_by(id=int(current_user.id)).one()
+        return render_template('gentelella/production/index.html', agent=agent)
     else:
         return redirect(url_for('website.unauthorized_handler'))
 
@@ -712,6 +712,16 @@ def delete_shop_item(shop_id, item_id):
         else:
             return render_template('shop/DeleteItem.html', shop=shop, item=item)
     return redirect(url_for('website.unauthorized_handler'))
+
+
+@mod_site.route('/stock', methods=['GET', 'POST'])
+# route for deleteShopItem function here
+@set_renderers(HTMLRenderer)
+def stock_chart():
+    agent = None
+    stock = db.session.query(models.Stock).filter_by(id=1).one()
+    items = db.session.query(models.StockValues).filter_by(stock_id=stock.id).all()
+    return render_template('shop/stock_chart.html', items=[item.serialize for item in items], agent=agent)
 
 
 @mod_site.route('/myOrders/<int:shop_id>', methods=['GET', 'POST'])

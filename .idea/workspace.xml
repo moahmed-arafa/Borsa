@@ -5,42 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f615e159-0fe4-4e0d-ad6c-818e176f369a" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/migrations/README" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/migrations/alembic.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/migrations/env.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/migrations/script.py.mako" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/migrations/versions/2e5d4bff27a5_.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/migrations/versions/332fb5104e73_.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/migrations/versions/38a48b622ebf_.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/migrations/versions/3e06437cb724_.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/migrations/versions/4edbd49bdb67_.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/migrations/versions/516b8770dea4_.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/migrations/versions/551cbb571bbf_.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/migrations/versions/5a2d605dc102_.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/migrations/versions/813bda7910cb_.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/migrations/versions/83ee39f6c684_.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/migrations/versions/8b69df416454_.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/migrations/versions/980fd9b9fe3e_.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/migrations/versions/a31088b24ec0_.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/migrations/versions/a5d9b2c57b06_.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/migrations/versions/b02fc0980af4_.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/migrations/versions/b08b4f45f3f6_.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/migrations/versions/b15c71838e81_.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/migrations/versions/baf2277dad5a_.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/migrations/versions/bf7b041f344d_.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/migrations/versions/c5216684d593_.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/migrations/versions/c71bb8c5114c_.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/migrations/versions/d3a818431dff_.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/migrations/versions/d3e9ff4526af_.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/migrations/versions/dbe3101d52cf_.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/migrations/versions/e3a47d42dca0_.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/migrations/versions/e48f3bb2330b_.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/migrations/versions/e6834760469d_.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/migrations/versions/f1336a1c59f8_.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/migrations/versions/f5cb13a04eb5_.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/migrations/versions/f5f5a818f3dd_.py" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/templates/shop/stock_chart.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/UserMobileService/controller.py" afterPath="$PROJECT_DIR$/app/UserMobileService/controller.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/shopsite/controller.py" afterPath="$PROJECT_DIR$/app/shopsite/controller.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/footer.html" afterPath="$PROJECT_DIR$/app/templates/footer.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/header.html" afterPath="$PROJECT_DIR$/app/templates/header.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models.py" afterPath="$PROJECT_DIR$/app/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test.py" afterPath="$PROJECT_DIR$/test.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/top_navigation.html" afterPath="$PROJECT_DIR$/app/templates/top_navigation.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="flask-by-example.iws" />
@@ -68,48 +40,62 @@
     <favorites_list name="flask-by-example" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
-      <split-first>
-        <leaf>
-          <file leaf-file-name="controller.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/app/UserMobileService/controller.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-1.986014">
-                  <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/models.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-4.1538463">
-                  <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-                  <folding>
-                    <element signature="e#0#18#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name=".env" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/.env">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.06020067">
-                  <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf>
+      <file leaf-file-name="controller.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/shopsite/controller.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-4.814815">
+              <caret line="723" column="44" selection-start-line="723" selection-start-column="33" selection-end-line="723" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="134" column="17" selection-start-line="134" selection-start-column="8" selection-end-line="134" selection-end-column="17" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="controller.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/UserMobileService/controller.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="64.38461">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="stock_chart.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/templates/shop/stock_chart.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.6426799">
+              <caret line="43" column="24" selection-start-line="43" selection-start-column="24" selection-end-line="43" selection-end-column="24" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="editUser.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/templates/editUser.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-13.259259">
+              <caret line="30" column="38" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -126,8 +112,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/templates/summery.html" />
-        <option value="$PROJECT_DIR$/app/templates/files.html" />
         <option value="$PROJECT_DIR$/app/templates/404.html" />
         <option value="$PROJECT_DIR$/app/templates/Admin/ImageUpload.html" />
         <option value="$PROJECT_DIR$/app/templates/shop/menu_footer.html" />
@@ -154,9 +138,7 @@
         <option value="$PROJECT_DIR$/lotsofitems.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/test_requests.py" />
-        <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/app/__init__.py" />
-        <option value="$PROJECT_DIR$/app/templates/top_navigation.html" />
         <option value="$PROJECT_DIR$/app/templates/shop/revies_list.html" />
         <option value="$PROJECT_DIR$/app/templates/gentelella/production/general_elements.html" />
         <option value="$PROJECT_DIR$/app/templates/shop/header.html" />
@@ -164,7 +146,6 @@
         <option value="$PROJECT_DIR$/app/templates/shop/reviews_list.html" />
         <option value="$PROJECT_DIR$/app/templates/shop/send_push.html" />
         <option value="$PROJECT_DIR$/app/templates/shop/user_reviews_list.html" />
-        <option value="$PROJECT_DIR$/app/templates/header.html" />
         <option value="$PROJECT_DIR$/app/templates/shop/all_users_reviews.html" />
         <option value="$PROJECT_DIR$/app/templates/shop/new_item.html" />
         <option value="$PROJECT_DIR$/app/templates/shop/CsvProductUpload.html" />
@@ -173,10 +154,15 @@
         <option value="$PROJECT_DIR$/app/templates/shop/ImageUpload.html" />
         <option value="$PROJECT_DIR$/app/templates/shop/ItemsList.html" />
         <option value="$PROJECT_DIR$/app/templates/menus.html" />
-        <option value="$PROJECT_DIR$/app/shopsite/controller.py" />
+        <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/app/UserMobileService/controller.py" />
         <option value="$PROJECT_DIR$/app/models.py" />
-        <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/test.py" />
+        <option value="$PROJECT_DIR$/app/templates/header.html" />
+        <option value="$PROJECT_DIR$/app/templates/top_navigation.html" />
+        <option value="$PROJECT_DIR$/app/shopsite/controller.py" />
+        <option value="$PROJECT_DIR$/app/templates/footer.html" />
+        <option value="$PROJECT_DIR$/app/templates/shop/stock_chart.html" />
       </list>
     </option>
   </component>
@@ -190,8 +176,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-1" />
     <option name="y" value="-1" />
-    <option name="width" value="1368" />
-    <option name="height" value="742" />
+    <option name="width" value="802" />
+    <option name="height" value="574" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -216,7 +202,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -236,104 +221,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="flask-by-example" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Borsa" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="env" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="flask-by-example" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Borsa" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="flask-by-example" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Borsa" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shopsite" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="flask-by-example" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Borsa" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="flask-by-example" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Borsa" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UserMobileService" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="/media/fantom/Локальный диск/Study/SDG/AjmanSecondApp_maste2" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="FullScreen" value="false" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="full.screen.before.presentation.mode" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/templates" />
       <recent name="$PROJECT_DIR$/app/templates/shop" />
+      <recent name="$PROJECT_DIR$/app/templates" />
       <recent name="$PROJECT_DIR$/app" />
       <recent name="$PROJECT_DIR$/app/templates/Admin" />
       <recent name="$PROJECT_DIR$" />
@@ -561,10 +466,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="-1" width="1368" height="742" extended-state="6" />
-    <editor active="true" />
+    <frame x="-1" y="-1" width="802" height="574" extended-state="6" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.47356495" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2651715" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32730561" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -596,7 +501,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.47356495" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2651715" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32930514" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3232" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -624,71 +529,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file:///var/www/gentelella/production/tables_dynamic.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-91.20911">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/admin/controller.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2556818">
-          <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/local/lib/python2.7/dist-packages/flask/globals.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7780822">
-          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/gentelella/production/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33428165">
-          <caret line="43" column="60" selection-start-line="43" selection-start-column="60" selection-end-line="43" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/local/lib/python2.7/dist-packages/datatables/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lotsofitems.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="29" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test_requests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="54" selection-start-line="8" selection-start-column="54" selection-end-line="8" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/env/lib/python2.7/site-packages/flask_login.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.346154">
-          <caret line="515" column="8" selection-start-line="515" selection-start-column="8" selection-end-line="515" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.6923077">
-          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/local/lib/python2.7/dist-packages/flask_login.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -700,14 +540,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3328767">
           <caret line="3881" column="8" selection-start-line="3881" selection-start-column="8" selection-end-line="3881" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/footer.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.56742555">
-          <caret line="18" column="43" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="43" />
         </state>
       </provider>
     </entry>
@@ -715,20 +547,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-18.518518">
           <caret line="1614" column="20" selection-start-line="1534" selection-start-column="13" selection-end-line="1614" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/header.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.6666665">
-          <caret line="35" column="22" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.56643355">
-          <caret line="24" column="24" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -799,13 +617,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/shop/new_item.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-92.666664">
-          <caret line="139" column="12" selection-start-line="139" selection-start-column="12" selection-end-line="139" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -886,24 +697,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/editUser.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.481482">
-          <caret line="30" column="38" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/files.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/menus.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.3333333">
-          <caret line="5" column="49" selection-start-line="5" selection-start-column="49" selection-end-line="5" selection-end-column="49" />
         </state>
       </provider>
     </entry>
@@ -928,18 +725,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/top_navigation.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7565674">
-          <caret line="24" column="113" selection-start-line="24" selection-start-column="113" selection-end-line="25" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///usr/local/lib/python2.7/dist-packages/SQLAlchemy-1.0.12-py2.7.egg!/sqlalchemy/sql/sqltypes.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="601" column="6" selection-start-line="601" selection-start-column="6" selection-end-line="601" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -947,17 +736,96 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334">
           <caret line="87" column="3" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/migrations/alembic.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.06020067">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/env/lib/python2.7/site-packages/sqlalchemy/orm/query.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.3594306">
+          <caret line="2675" column="8" selection-start-line="2675" selection-start-column="8" selection-end-line="2675" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.09440559">
+          <caret line="3" column="39" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/header.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/shopsite/controller.py">
+    <entry file="file://$PROJECT_DIR$/app/templates/menus.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="645" column="76" selection-start-line="645" selection-start-column="76" selection-end-line="645" selection-end-column="76" />
-          <folding>
-            <element signature="e#48#59#0" expanded="true" />
-          </folding>
+          <caret line="5" column="49" selection-start-line="5" selection-start-column="49" selection-end-line="5" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/top_navigation.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/shop/new_item.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.8283713">
+          <caret line="139" column="12" selection-start-line="139" selection-start-column="12" selection-end-line="139" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/page_404.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.6077058">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/gentelella/production/morisjs.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="492" column="62" selection-start-line="490" selection-start-column="4" selection-end-line="492" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/footer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="43" column="29" selection-start-line="43" selection-start-column="29" selection-end-line="43" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/gentelella/production/form_upload.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="45" column="18" selection-start-line="45" selection-start-column="18" selection-end-line="45" selection-end-column="18" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -969,29 +837,73 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/UserMobileService/controller.py">
+    <entry file="file://$PROJECT_DIR$/migrations/versions/dd254f74c8b7_.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.986014">
-          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+        <state vertical-scroll-proportion="-12.076923">
+          <caret line="24" column="18" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="18" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/run.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/manage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#9#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.1538463">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="134" column="17" selection-start-line="134" selection-start-column="8" selection-end-line="134" selection-end-column="17" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
+    <entry file="file://$PROJECT_DIR$/app/templates/editUser.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.06020067">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        <state vertical-scroll-proportion="-13.259259">
+          <caret line="30" column="38" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="38" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/UserMobileService/controller.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="64.38461">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/shopsite/controller.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.814815">
+          <caret line="723" column="44" selection-start-line="723" selection-start-column="33" selection-end-line="723" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/shop/stock_chart.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6426799">
+          <caret line="43" column="24" selection-start-line="43" selection-start-column="24" selection-end-line="43" selection-end-column="24" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

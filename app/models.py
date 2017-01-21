@@ -17,8 +17,8 @@ class Company(db.Model):
     password = db.Column(db.String)
     longitude = db.Column(db.Float)
     latitude = db.Column(db.Float)
-    com_number = db.Column(db.Integer)
-    tax_number = db.Column(db.Integer)
+    com_number = db.Column(db.String)
+    tax_number = db.Column(db.String)
     date_add = db.Column(db.DateTime, server_default=db.func.now())
     date_upd = db.Column(db.DateTime, server_default=db.func.now(), onupdate=db.func.now())
 
@@ -67,7 +67,7 @@ class Stock(db.Model):
     company = db.relationship(Company)
     current_value = db.Column(db.Float)
     last_value = db.Column(db.Float)
-    type = db.Column(db.Binary)
+    type = db.Column(db.Integer)
     init_no = db.Column(db.Integer)
     curr_no = db.Column(db.Integer)
     date_add = db.Column(db.DateTime, server_default=db.func.now())
@@ -79,7 +79,7 @@ class Stock(db.Model):
         current_values = db.session.query(StockValues).filter_by(stock_id=self.id)\
             .order_by(desc(StockValues.date_add)).first()
         last_values = db.session.query(StockValues).filter_by(stock_id=self.id)\
-            .order_by(asc(StockValues.date_add)).first()
+            .order_by(desc(StockValues.date_add)).all()[1]
         return {
             'id': self.id,
             'company_id': self.company_id,
@@ -119,8 +119,33 @@ class Customer(db.Model):
         }
 
 
+class CustomerStocks(db.Model):
+    __tablename__ = 'customer_stocks'
+
+    id = db.Column(db.Integer, primary_key=True)
+    stock_id = db.Column(db.Integer, db.ForeignKey('stock.id'))
+    stock = db.relationship(Stock)
+    customer_id = db.Column(db.Integer, db.ForeignKey('customer.id'))
+    customer = db.relationship(Customer)
+    quantity = db.Column(db.Integer)
+    date_add = db.Column(db.DateTime, server_default=db.func.now())
+    date_upd = db.Column(db.DateTime, server_default=db.func.now(), onupdate=db.func.now())
+
+    @property
+    def serialize(self):
+        # Returns object data in easily serialized format
+        return {
+            'id': self.id,
+            'stock': self.stock.serialize,
+            'customer': self.customer.serialize,
+            'quantity': self.quantity,
+            'date_add': self.date_add,
+            'date_upd': self.date_upd
+        }
+
+
 class Broker(db.Model):
-    __tablename__ = 'customer'
+    __tablename__ = 'broker'
 
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String)
@@ -269,10 +294,11 @@ class History(db.Model):
 
 
 class StockValues(db.Model):
-    __tablename__ = 'orders'
+    __tablename__ = 'stock_values'
 
     id = db.Column(db.Integer, primary_key=True)
-    stock_id = db.Column(db.Integer)
+    stock_id = db.Column(db.Integer, db.ForeignKey('stock.id'))
+    stock = db.relationship(Stock)
     value = db.Column(db.Float)
     date_add = db.Column(db.DateTime, server_default=db.func.now())
     date_upd = db.Column(db.DateTime, server_default=db.func.now(), onupdate=db.func.now())
@@ -289,10 +315,30 @@ class StockValues(db.Model):
         }
 
 
+class DeviceToken(db.Model):
+    __tablename__ = 'device_token'
+
+    id = db.Column(db.Integer, primary_key=True)
+    device_token = db.Column(db.String)
+    date_add = db.Column(db.DateTime, server_default=db.func.now())
+    date_upd = db.Column(db.DateTime, server_default=db.func.now(), onupdate=db.func.now())
+
+    @property
+    def serialize(self):
+        # Returns object data in easily serialized format
+        return {
+            'id': self.id,
+            'device_token': self.device_token,
+            'date_add': self.date_add,
+            'date_upd': self.date_upd
+        }
+
+
 class Request(db.Model):
     __tablename__ = 'request'
 
     id = db.Column(db.Integer, primary_key=True)
+    type = db.Column(db.Binary)
     stock_id = db.Column(db.Integer, db.ForeignKey('stock.id'))
     stock = db.relationship(Stock)
     customer_id = db.Column(db.Integer, db.ForeignKey('customer.id'))
@@ -300,6 +346,8 @@ class Request(db.Model):
     broker_id = db.Column(db.Integer, db.ForeignKey('broker.id'))
     broker = db.relationship(Broker)
     no_stocks = db.Column(db.Integer)
+    value_id = db.Column(db.Integer, db.ForeignKey('stock_values.id'))
+    value = db.relationship(StockValues)
     active = db.Column(db.Boolean, server_default='true')
     date_add = db.Column(db.DateTime, server_default=db.func.now())
     date_upd = db.Column(db.DateTime, server_default=db.func.now(), onupdate=db.func.now())
@@ -309,10 +357,12 @@ class Request(db.Model):
         # Returns object data in easily serialized format
         return {
             'id': self.id,
+            'type': self.type,
             'stock': self.stock.serialize,
             'customer_id': self.customer.serialize,
             'broker': self.broker.serialize,
             'no_stocks': self.no_stocks,
+            'value': self.value,
             'active': self.active,
             'date_add': self.date_add,
             'date_upd': self.date_upd
@@ -325,4 +375,3 @@ class Request(db.Model):
         NB! Calls many2many's serialize property.
         """
         return [item.serialize for item in self.parent]
-
