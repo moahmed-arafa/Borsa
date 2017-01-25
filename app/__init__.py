@@ -1,15 +1,15 @@
 # Import flask and template operators
 import os
+import random
+from time import sleep
 
 from flask import render_template
 from flask_pushjack import FlaskGCM
 from flask.ext.login import LoginManager
 from flask.ext.api import FlaskAPI
 from rq import Queue
-from rq.job import Job
 import logging, sys
 from worker import conn
-from marshmallow_sqlalchemy import ModelSchema
 from sqlalchemy import event
 from sqlalchemy.orm import mapper
 from Schema import setup_schema
@@ -79,14 +79,12 @@ def not_found(error):
 
 
 # Import a module / component using its blueprint handler variable (mod_auth)
-from app.shopsite.controller import mod_site as site_module
-from app.admin.controller import mod_admin as admin_module
 from app.UserMobileService.controller import mod_mobile_user as user_module
+from app.site.controller import mod_site as site
 
 # Register blueprint(s)
-app.register_blueprint(site_module)
-app.register_blueprint(admin_module)
 app.register_blueprint(user_module)
+app.register_blueprint(site)
 # app.register_blueprint(xyz_module)
 
 from itsdangerous import URLSafeTimedSerializer
@@ -104,3 +102,21 @@ def confirm_token(token, expiration=3600):
     except:
         return False
     return email
+
+
+def update_stock():
+    stocks = db.session.query(models.Stock).all()
+    if len(stocks) > 0:
+        while True:
+            for stock in stocks:
+                v = stock.current_value
+                new_value =random.uniform(v - 10, v + 10)
+                if new_value > 0 :
+                    stock.current_value = new_value
+                    stock.last_value = v
+                    sv = models.StockValues(stock_id=stock.id, value=stock.current_value)
+                    db.session.add(sv)
+                    print(str(stock.id) + ":" + str(v) + "/" + str(stock.current_value))
+                    db.session.commit()
+                    sleep(10)
+    return

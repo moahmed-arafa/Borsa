@@ -29,6 +29,14 @@ ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 ALLOWED_CSV = {'csv'}
 
 
+@mod_site.route('/values', methods=['GET', 'POST'])
+# route for deleteShopItem function here
+@set_renderers(HTMLRenderer)
+def get_values():
+    items = db.session.query(models.StockValues).filter_by(stock_id=1).all()
+    return [item.serialize for item in items]
+
+
 @mod_site.route('/', methods=['GET', 'POST'])
 # route for deleteShopItem function here
 @set_renderers(HTMLRenderer)
