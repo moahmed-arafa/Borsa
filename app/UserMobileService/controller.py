@@ -1,5 +1,5 @@
 # coding=utf-8
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request
 from sqlalchemy import desc
 from app import db, API_KEY, client
 from app import models
@@ -28,11 +28,11 @@ def login_customer():
                 return user[0].serialize
             else:
                 # wrong password
-                return jsonify(response=-1)
+                return {"response": -1}
         else:
             # no matching email
-            return jsonify(response=-2)
-    return jsonify(response=-400)
+            return {"response": -2}
+    return {"response": -400}
 
 
 @mod_mobile_user.route('/loginBroker', methods=['GET', 'POST'])
@@ -47,11 +47,11 @@ def login_broker():
                 return user[0].serialize
             else:
                 # wrong password
-                return jsonify(response=-1)
+                return {"response": -1}
         else:
             # no matching email
-            return jsonify(response=-2)
-    return jsonify(response=-400)
+            return {"response": -2}
+    return {"response": -400}
 
 
 @mod_mobile_user.route('/loginCompany', methods=['GET', 'POST'])
@@ -66,11 +66,11 @@ def login_company():
                 return user[0].serialize
             else:
                 # wrong password
-                return jsonify(response=-1)
+                return {"response": -1}
         else:
             # no matching email
-            return jsonify(response=-2)
-    return jsonify(response=-400)
+            return {"response": -2}
+    return {"response": -400}
 
 
 # @mod_mobile_user.route('/resetPass', methods=['GET', 'POST'])
@@ -115,20 +115,21 @@ def signup_customer():
                     new_id = user.id
                     db.session.commit()
                     # user_added = db.session.query(models.User).filter_by(email=username).all()
-                    return jsonify(response=new_id)
+                    return {"response": new_id}
                 except:
                     db.session.rollback()
                     raise
         else:
             # error
-            return jsonify(response=-1)
+            return {"response": -1}
     else:
-        return jsonify(response=-400)
+        return {"response": -400}
 
 
 # sign up user by @email and @password
 @mod_mobile_user.route('/signupCompany', methods=['GET', 'POST'])
 def signup_company():
+    global phone, address, com_number, latitude, longitude, tax_number
     if request.headers.get('Authorization') == API_KEY:
         req_json = request.get_json()
         name = req_json['name']
@@ -165,15 +166,15 @@ def signup_company():
                     new_id = user.id
                     db.session.commit()
                     # user_added = db.session.query(models.User).filter_by(email=username).all()
-                    return jsonify(response=new_id)
+                    return {"response": new_id}
                 except:
                     db.session.rollback()
                     raise
         else:
             # error
-            return jsonify(response=-1)
+            return {"response": -1}
     else:
-        return jsonify(response=-400)
+        return {"response": -400}
 
 
 # sign up user by @email and @password
@@ -204,15 +205,15 @@ def signup_broker():
                     new_id = user.id
                     db.session.commit()
                     # user_added = db.session.query(models.User).filter_by(email=username).all()
-                    return jsonify(response=new_id)
+                    return {"response": new_id}
                 except:
                     db.session.rollback()
                     raise
         else:
             # error
-            return jsonify(response=-1)
+            return {"response": -1}
     else:
-        return jsonify(response=-400)
+        return {"response": -400}
 
 
 # register device for push notifications
@@ -226,8 +227,8 @@ def register_device():
         client.send(device_token, "welcome To Borsa")
         db.session.add(token)
         db.session.commit()
-        return jsonify(response=device_token)
-    return jsonify(response=-400)
+        return {"response": device_token}
+    return {"response": -400}
 
 
 # add new stock
@@ -246,8 +247,8 @@ def add_stock():
         values = models.StockValues(stock=stock, value=value)
         db.session.add(values)
         db.session.commit()
-        return jsonify(response=stock.id)
-    return jsonify(response=-400)
+        return {"response": stock.id}
+    return {"response": -400}
 
 
 # add new stock
@@ -266,10 +267,10 @@ def buy_stock_request():
             db.session.add(stock_request)
             db.session.flush()
             db.session.commit()
-            return jsonify(response=stock_request.id)
+            return {"response": stock_request.id}
         else:
-            return jsonify(response=-2)
-    return jsonify(response=-400)
+            return {"response": -2}
+    return {"response": -400}
 
 
 # add new stock
@@ -292,12 +293,12 @@ def sell_stock_request():
                 db.session.add(stock_request)
                 db.session.flush()
                 db.session.commit()
-                return jsonify(response=stock_request.id)
+                return {"response": stock_request.id}
             else:
-                return jsonify(response=-2)
+                return {"response": -2}
         else:
-            return jsonify(response=-1)
-    return jsonify(response=-400)
+            return {"response": -1}
+    return {"response": -400}
 
 
 # add new stock
@@ -326,10 +327,10 @@ def buy_stock_request_confirm():
             db.session.add(stock_request)
             db.session.flush()
             db.session.commit()
-            return jsonify(response=stock_request.id)
+            return {"response": stock_request.id}
         else:
-            return jsonify(response=-2)
-    return jsonify(response=-400)
+            return {"response": -2}
+    return {"response": -400}
 
 
 # add new stock
@@ -353,10 +354,10 @@ def sell_stock_request_confirm():
             db.session.add(stock_request)
             db.session.flush()
             db.session.commit()
-            return jsonify(response=stock_request.id)
+            return {"response": stock_request.id}
         else:
-            return jsonify(response=-2)
-    return jsonify(response=-400)
+            return {"response": -2}
+    return {"response": -400}
 
 
 # add new stock
@@ -365,7 +366,7 @@ def get_all_stocks():
     if request.headers.get('Authorization') == API_KEY:
         stock = db.session.query(models.Stock).all()
         return [item.serialize for item in stock]
-    return jsonify(response=-400)
+    return {"response": -400}
 
 
 # add new stock
@@ -380,7 +381,7 @@ def update_stock_value():
         db.session.add(stock_value)
         db.session.commit()
         return stock.serialize
-    return jsonify(response=-400)
+    return {"response": -400}
 
 
 # add new stock
@@ -391,7 +392,7 @@ def get_company_stocks():
         company_id = req_json['company_id']
         stock = db.session.query(models.Stock).filter_by(company_id=company_id).all()
         return [item.serialize for item in stock]
-    return jsonify(response=-400)
+    return {"response": -400}
 
 
 # add new stock
@@ -402,4 +403,4 @@ def get_user_stocks():
         customer_id = req_json['customer_id']
         stock = db.session.query(models.CustomerStocks).filter_by(customer_id=customer_id).all()
         return [item.serialize for item in stock]
-    return jsonify(response=-400)
+    return {"response": -400}
