@@ -132,14 +132,20 @@ def signup_company():
     if request.headers.get('Authorization') == API_KEY:
         req_json = request.get_json()
         name = req_json['name']
-        phone = req_json['phone']
+        if req_json['phone']:
+            phone = req_json['phone']
         email = req_json['email']
-        address = req_json['address']
+        if req_json['address']:
+            address = req_json['address']
         password = req_json['password']
-        longitude = req_json['longitude']
-        latitude = req_json['latitude']
-        com_number = req_json['com_number']
-        tax_number = req_json['tax_number']
+        if req_json['longitude']:
+            longitude = req_json['longitude']
+        if req_json['latitude']:
+            latitude = req_json['latitude']
+        if req_json['com_number']:
+            com_number = req_json['com_number']
+        if req_json['tax_number']:
+            tax_number = req_json['tax_number']
         if db.session.query(models.Company).filter_by(email=email):
             user = db.session.query(models.Company).filter_by(email=email).all()
             if len(user) > 0:
