@@ -73,20 +73,40 @@ def login_company():
     return {"response": -400}
 
 
-# @mod_mobile_user.route('/resetPass', methods=['GET', 'POST'])
-# def reset_password():
-#     if request.headers.get('Authorization') == API_KEY:
-#         req_json = request.get_json()
-#         user_id = req_json['user_id']
-#         user = db.session.query(models.Users).filter_by(id=user_id).first()
-#         if user:
-#             user.passwd = req_json['password']
-#             db.session.add(user)
-#             db.session.commit()
-#             return jsonify(response=1)
-#         else:
-#             return jsonify(response=-2)
-#     return jsonify(response=-400)
+@mod_mobile_user.route('/getCustomer', methods=['GET', 'POST'])
+def get_customer():
+    if request.headers.get('Authorization') == API_KEY:
+        req_json = request.get_json()
+        user_id = req_json['user_id']
+        user = db.session.query(models.Customer).filter_by(id=user_id).first()
+        if user:
+            return {"response": user.serialize}
+        else:
+            return {"response": -1}
+
+
+@mod_mobile_user.route('/getCompany', methods=['GET', 'POST'])
+def get_company():
+    if request.headers.get('Authorization') == API_KEY:
+        req_json = request.get_json()
+        user_id = req_json['user_id']
+        user = db.session.query(models.Company).filter_by(id=user_id).first()
+        if user:
+            return {"response": user.serialize}
+        else:
+            return {"response": -1}
+
+
+@mod_mobile_user.route('/getBroker', methods=['GET', 'POST'])
+def get_broker():
+    if request.headers.get('Authorization') == API_KEY:
+        req_json = request.get_json()
+        user_id = req_json['user_id']
+        user = db.session.query(models.Broker).filter_by(id=user_id).first()
+        if user:
+            return {"response": user.serialize}
+        else:
+            return {"response": -1}
 
 
 # sign up user by @email and @password
