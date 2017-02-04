@@ -97,11 +97,16 @@ def get_company():
             return jsonify(response=-1)
 
 
-@mod_mobile_user.route('/getAllCompanies', methods=['GET', 'POST'])
-def get_all_companies():
+@mod_mobile_user.route('/getStock', methods=['GET', 'POST'])
+def get_stock():
     if request.headers.get('Authorization') == API_KEY:
-        companies = db.session.query(models.Company).all()
-        return [item.serialize for item in companies]
+        req_json = request.get_json()
+        stock_id = req_json['stock_id']
+        stock = db.session.query(models.Stock).filter_by(id=stock_id).first()
+        if stock:
+            return jsonify(response=stock.serialize)
+        else:
+            return jsonify(response=-1)
 
 
 @mod_mobile_user.route('/getBroker', methods=['GET', 'POST'])
@@ -114,6 +119,13 @@ def get_broker():
             return {"response": user.serialize}
         else:
             return {"response": -1}
+
+
+@mod_mobile_user.route('/getAllCompanies', methods=['GET', 'POST'])
+def get_all_companies():
+    if request.headers.get('Authorization') == API_KEY:
+        companies = db.session.query(models.Company).all()
+        return [item.serialize for item in companies]
 
 
 # sign up user by @email and @password

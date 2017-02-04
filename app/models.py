@@ -87,7 +87,7 @@ class Stock(db.Model):
             .order_by(desc(StockValues.date_add)).all()[1]
         return {
             'id': self.id,
-            'company_id': self.company_id,
+            'company': self.company.serialize,
             'current_value': None if current_values is None else current_values.value,
             'last_value': None if last_values is None else last_values.value,
             'type': self.type,

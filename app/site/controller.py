@@ -50,11 +50,34 @@ def list_companies_data():
     # instantiating a DataTable for the query and table needed
     rowTable = DataTables(params, query, columns)
     # returns what is needed by DataTable
-    print(json.dumps(rowTable.output_result()))
     return jsonify(rowTable.output_result())
 
 
-@mod_site.route('/list_companies_data')
+@mod_site.route('/list_stock_data')
+def list_stock_data():
+    """Return server side data."""
+    # defining columns
+    columns = [
+        ColumnDT(models.Stock.id),
+        ColumnDT(models.Stock.current_value),
+        ColumnDT(models.Stock.last_value),
+        ColumnDT(models.Stock.init_no),
+        ColumnDT(models.Stock.curr_no),
+        ColumnDT(models.Stock.type),
+        # ColumnDT("<a class=\"fa fa-edit\" href=\"{{url_for('website.edit_com', tn=" + models.Company.id + ")}}\"></a>")
+    ]
+
+    # defining the initial query depending on your purpose
+    query = db.session.query().select_from(models.Stock).filter(1 == 1)
+    # GET parameters
+    params = request.args.to_dict()
+    # instantiating a DataTable for the query and table needed
+    rowTable = DataTables(params, query, columns)
+    # returns what is needed by DataTable
+    return jsonify(rowTable.output_result())
+
+
+@mod_site.route('/select_companies_data')
 def select_companies_data():
     """Return server side data."""
     companies = db.session.query(models.Company).all()
@@ -73,6 +96,14 @@ def get_values():
 # route for deleteShopItem function here
 @set_renderers(HTMLRenderer)
 def home():
+    agent = None
+    return render_template('companies_list.html', agent=agent)
+
+
+@mod_site.route('/stock_chart', methods=['GET', 'POST'])
+# route for deleteShopItem function here
+@set_renderers(HTMLRenderer)
+def stock_chart():
     agent = None
     stock = db.session.query(models.Stock).filter_by(id=1).one()
     items = db.session.query(models.StockValues).filter_by(stock_id=stock.id).all()
@@ -138,14 +169,16 @@ def add_stock():
 
             new_stock_init_value = request.form.get('init_value')
             new_type = request.form.get('type')
+            current_value = request.form.get('current_value')
 
-            new_stock = models.Stock(init_value=new_stock_init_value, type=new_type, company=company)
-            print(new_stock.serialize)
+            new_stock = models.Stock(init_no=new_stock_init_value, type=new_type, company=company, current_value=current_value)
 
             db.session.add(new_stock)
             db.session.flush()
             new_id = new_stock.id
             db.session.commit()
+            print(new_id)
+
             print("item added id:" + str(new_id))
             return render_template('add_stock.html', agent=agent)
         except:
@@ -160,3 +193,11 @@ def add_stock():
 def get_companies():
     agent = None
     return render_template('companies_list.html', agent=agent)
+
+
+@mod_site.route('/get_stocks')
+# route for GetShopItems function here
+@set_renderers(HTMLRenderer)
+def get_stocks():
+    agent = None
+    return render_template('stocks_list.html', agent=agent)

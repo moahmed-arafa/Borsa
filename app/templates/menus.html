@@ -14,7 +14,7 @@
                 <ul class="nav child_menu">
                     <li><a href="{{ url_for('website.add_company') }}">Company</a></li>
                     <li><a href="#">Broker</a></li>
-                    <li><a href="#">Stock</a></li>
+                    <li><a href="{{ url_for('website.add_stock') }}">Stock</a></li>
                 </ul>
             </li>
             <!--<li><a><i class="fa fa-desktop"></i> UI Elements <span-->
@@ -35,7 +35,7 @@
                 <ul class="nav child_menu">
                     <li><a href="{{ url_for('website.get_companies') }}">Company</a></li>
                     <li><a href="#">Broker</a></li>
-                    <li><a href="#">Stock</a></li>
+                    <li><a href="{{ url_for('website.get_stocks') }}">Stock</a></li>
                 </ul>
             </li>
             <li><a><i class="fa fa-users"></i> Action <span class="fa fa-chevron-down"></span></a>
