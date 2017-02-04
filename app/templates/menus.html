@@ -3,7 +3,7 @@
     <div class="menu_section">
         <h3>General</h3>
         <ul class="nav side-menu">
-            <li><a href="{{url_for('website.home')}}"><i class="fa fa-home"></i> Home </a>
+            <li><a href="#"><i class="fa fa-home"></i> Home </a>
                 <!--<ul class="nav child_menu">-->
                     <!--<li><a href="index.html">Dashboard</a></li>-->
                     <!--<li><a href="index2.html">Dashboard2</a></li>-->
@@ -12,6 +12,9 @@
             </li>
             <li><a><i class="fa fa-edit"></i> Add New <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
+                    <li><a href="{{ url_for('website.add_company') }}">Company</a></li>
+                    <li><a href="#">Broker</a></li>
+                    <li><a href="#">Stock</a></li>
                 </ul>
             </li>
             <!--<li><a><i class="fa fa-desktop"></i> UI Elements <span-->
@@ -30,9 +33,9 @@
             <!--</li>-->
             <li><a><i class="fa fa-table"></i> Edit/View <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
-                    <li><a href="#">Item</a></li>
-                    <li><a href="#">Category</a></li>
-                    <li><a href="#">Agent</a></li>
+                    <li><a href="{{ url_for('website.get_companies') }}">Company</a></li>
+                    <li><a href="#">Broker</a></li>
+                    <li><a href="#">Stock</a></li>
                 </ul>
             </li>
             <li><a><i class="fa fa-users"></i> Action <span class="fa fa-chevron-down"></span></a>
@@ -44,8 +47,8 @@
             <li><a><i class="fa fa-bar-chart-o"></i> Reports <span
                     class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
-                    <li><a href="#">Orders</a></li>
-                    <li><a href="#">Agents</a></li>
+                    <li><a href="#">General</a></li>
+                    <li><a href="#">Transactions</a></li>
                     <!--<li><a href="morisjs.html">Moris JS</a></li>-->
                     <!--<li><a href="echarts.html">ECharts</a></li>-->
                     <!--<li><a href="other_charts.html">Other Charts</a></li>-->

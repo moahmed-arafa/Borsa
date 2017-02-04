@@ -11,8 +11,11 @@ class Company(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String)
+    name_ar = db.Column(db.String)
+    symbol = db.Column(db.String)
     phone = db.Column(db.String)
     email = db.Column(db.String)
+    website = db.Column(db.String)
     address = db.Column(db.String)
     password = db.Column(db.String)
     longitude = db.Column(db.Float)
@@ -28,6 +31,8 @@ class Company(db.Model):
         return {
             'id': self.id,
             'name': self.name,
+            'name_ar': self.name_ar,
+            'symbol': self.symbol,
             'phone': self.phone,
             'email': self.email,
             'address': self.address,

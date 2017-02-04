@@ -1,5 +1,5 @@
 # coding=utf-8
-from flask import Blueprint, request
+from flask import Blueprint, request, jsonify
 from sqlalchemy import desc
 from app import db, API_KEY, client
 from app import models
@@ -82,7 +82,7 @@ def get_customer():
         if user:
             return {"response": user.serialize}
         else:
-            return {"response": -1}
+            return jsonify(response=-1)
 
 
 @mod_mobile_user.route('/getCompany', methods=['GET', 'POST'])
@@ -92,9 +92,16 @@ def get_company():
         user_id = req_json['user_id']
         user = db.session.query(models.Company).filter_by(id=user_id).first()
         if user:
-            return {"response": user.serialize}
+            return jsonify(response=user.serialize)
         else:
-            return {"response": -1}
+            return jsonify(response=-1)
+
+
+@mod_mobile_user.route('/getAllCompanies', methods=['GET', 'POST'])
+def get_all_companies():
+    if request.headers.get('Authorization') == API_KEY:
+        companies = db.session.query(models.Company).all()
+        return [item.serialize for item in companies]
 
 
 @mod_mobile_user.route('/getBroker', methods=['GET', 'POST'])
