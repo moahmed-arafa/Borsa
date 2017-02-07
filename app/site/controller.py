@@ -145,6 +145,36 @@ def add_company():
         return render_template('add_company.html', agent=agent)
 
 
+@mod_site.route('/edit_company/<int:com_id>', methods=['GET', 'POST'])
+# route for deleteShopItem function here
+@set_renderers(HTMLRenderer)
+def edit_company(com_id):
+    company = db.session.query(models.Company).filter_by(id=com_id).first()
+    if request.method == 'POST':
+        try:
+            company.name = request.form.get('com_name')
+            company.name_ar = request.form.get('com_name_ar')
+            company.symbol = request.form.get('symbol')
+            company.phone = request.form.get('phone')
+            company.email = request.form.get('email')
+            company.website = request.form.get('website')
+            company.com_number = request.form.get('com_num')
+            company.tax_number = request.form.get('tax_num')
+
+            print(company.serialize)
+
+            db.session.add(company)
+            db.session.flush()
+            new_id = company.id
+            db.session.commit()
+            print("item added id:" + str(new_id))
+            return render_template('edit_company.html', company=company)
+        except:
+            traceback.print_exc()
+    else:
+        return render_template('edit_company.html', company=company)
+
+
 @mod_site.route('/add_stock', methods=['GET', 'POST'])
 # route for deleteShopItem function here
 @set_renderers(HTMLRenderer)
