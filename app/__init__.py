@@ -123,3 +123,6 @@ def update_stock():
                     db.session.commit()
                     sleep(60)
     return
+
+
+q.enqueue_call(func=update_stock)
