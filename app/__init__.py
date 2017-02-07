@@ -66,6 +66,7 @@ event.listen(mapper, 'after_configured', setup_schema(Base, db.session))
 
 q = Queue(connection=conn)
 
+
 #
 # # Login Manager Init
 # login_manager = LoginManager()
@@ -105,13 +106,15 @@ def confirm_token(token, expiration=3600):
 
 
 def update_stock():
+    print("update stocks")
     stocks = db.session.query(models.Stock).all()
     if len(stocks) > 0:
+        print(str(len(stocks)))
         while True:
             for stock in stocks:
                 v = stock.current_value
-                new_value =random.uniform(v - 10, v + 10)
-                if new_value > 0 :
+                new_value = random.uniform(v - 10, v + 10)
+                if new_value > 0:
                     stock.current_value = new_value
                     stock.last_value = v
                     sv = models.StockValues(stock_id=stock.id, value=stock.current_value)
