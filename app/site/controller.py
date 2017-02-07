@@ -1,14 +1,7 @@
 #! /usr/local/bin/python  -*- coding: UTF-8 -*-
-import json
-from string import upper
 from datatables import ColumnDT, DataTables
-import os
-from flask.ext.restplus import abort
-import mechanize
 from flask import Blueprint, request, render_template, flash, redirect, url_for, Response, jsonify
-from flask.ext.login import login_required, login_user, logout_user, current_user
-from numpy import genfromtxt
-from app import db, login_manager, models, q, client
+from app import db, models, q, client
 from flask.ext.api.decorators import set_renderers
 from flask.ext.api.renderers import HTMLRenderer
 from HTMLParser import HTMLParser
@@ -36,8 +29,7 @@ def list_companies_data():
     columns = [
         ColumnDT(models.Company.id),
         ColumnDT(models.Company.symbol),
-        ColumnDT(models.Company.name),
-        ColumnDT(models.Company.name_ar),
+        ColumnDT(models.Company.name + "|" + models.Company.name_ar),
         ColumnDT(models.Company.phone),
         ColumnDT(models.Company.website),
         # ColumnDT("<a class=\"fa fa-edit\" href=\"{{url_for('website.edit_com', tn=" + models.Company.id + ")}}\"></a>")
@@ -96,8 +88,8 @@ def get_values():
 # route for deleteShopItem function here
 @set_renderers(HTMLRenderer)
 def home():
-    agent = None
-    return render_template('companies_list.html', agent=agent)
+    items = db.session.query(models.Company).all()
+    return render_template('companies_list.html', items=items)
 
 
 @mod_site.route('/stock_chart', methods=['GET', 'POST'])
@@ -191,8 +183,7 @@ def add_stock():
 # route for GetShopItems function here
 @set_renderers(HTMLRenderer)
 def get_companies():
-    agent = None
-    return render_template('companies_list.html', agent=agent)
+    return render_template('companies_list.html')
 
 
 @mod_site.route('/get_stocks')

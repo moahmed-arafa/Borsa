@@ -57,13 +57,10 @@
                         <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Symbol</th>
-                            <th>Name(E)</th>
-                            <th>Name(A)</th>
-                            <th>Phone</th>
-                            <th>Website</th>
-                            <!--<th></th>-->
-                            <!--<th>image</th>-->
+                            <th>Code</th>
+                            <th>Name</th>
+                            <th>phone</th>
+                            <th>website</th>
                             <!--<th>Edit</th>-->
                         </tr>
                         </thead>
@@ -71,39 +68,22 @@
                         <tfoot>
                         <tr>
                             <th>ID</th>
-                            <th>Symbol</th>
-                            <th>Name(E)</th>
-                            <th>Name(A)</th>
-                            <th>Phone</th>
-                            <th>Website</th>
-                            <!--<th></th>-->
-                            <!--<th>image</th>-->
-                            <!--<th>Edit</th>-->
+                            <th>Code</th>
+                            <th>Name</th>
+                            <th>phone</th>
+                            <th>website</th>
                         </tr>
                         </tfoot>
 
                         <tbody>
-                        <!--{% for item in items %}-->
-                        <!--<tr>-->
-                        <!--<td>{{ item.id }}</td>-->
-                        <!--<td>{{ item.code }}</td>-->
-                        <!--<td>{{ item.name }}</td>-->
-                        <!--<td>{{ item.description}}</td>-->
-                        <!--<td>{{ item.price }}</td>-->
-
-                        <!--<td>-->
-                        <!--{% if item.main_image %}-->
-                        <!--<img class="control-label col-md-3 col-sm-3 col-xs-12"-->
-                        <!--style="width:80px;height:80px;"-->
-                        <!--src="http://bubble.zeowls.com/uploads/{{item.main_image}}">-->
-                        <!--{% endif %}-->
-                        <!--</td>-->
-
-                        <!--<td><a class="fa fa-edit"-->
-                        <!--href="{{url_for('website.edit_shop_item', agent_id=agent.id, item_id=item.id)}}"></a>-->
-                        <!--</td>-->
-                        <!--</tr>-->
-                        <!--{% endfor %}-->
+                        {% for item in items %}
+                        <tr>
+                        <td>{{ item.id }}</td>
+                        <td>{{ item.symbol }}</td>
+                        <td>{{ item.name }} | {{ item.name_ar }}</td>
+                        <td>{{ item.phone}}</td>
+                        <td>{{ item.website }}</td>
+                        {% endfor %}
                         </tbody>
                     </table>
                 </div>
@@ -193,9 +173,16 @@
             ],
             fixedHeader: true,
             responsive: true,
-            "processing": true,
-            "serverSide": true,
-            "ajax": "{{ url_for('website.list_companies_data') }}"
+//            data: data,
+//            columns: [
+//                {data: 'id'},
+//                {data: 'code'},
+//                {data: 'description'},
+//                {data: 'price'}
+//            ]
+//            "processing": true,
+//            "serverSide": true,
+//            "ajax": "{{ url_for('website.list_companies_data') }}"
         });
 
         // Apply the search
