@@ -121,8 +121,7 @@ def update_stock():
                     db.session.add(sv)
                     print(str(stock.id) + ":" + str(v) + "/" + str(stock.current_value))
                     db.session.commit()
-                    sleep(60)
+            sleep(60)
     return
-
 
 update_stock()
