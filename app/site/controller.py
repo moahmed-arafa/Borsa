@@ -213,12 +213,13 @@ def add_stock():
 # route for GetShopItems function here
 @set_renderers(HTMLRenderer)
 def get_companies():
-    return render_template('companies_list.html')
+    companies = db.session.query(models.Company).all()
+    return render_template('companies_list.html', items=companies)
 
 
 @mod_site.route('/get_stocks')
 # route for GetShopItems function here
 @set_renderers(HTMLRenderer)
 def get_stocks():
-    agent = None
-    return render_template('stocks_list.html', agent=agent)
+    stocks = db.session.query(models.Stock).all()
+    return render_template('stocks_list.html', items=stocks)
