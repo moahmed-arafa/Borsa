@@ -125,4 +125,4 @@ def update_stock():
     return
 
 
-q.enqueue_call(func=update_stock)
+update_stock()
