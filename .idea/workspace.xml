@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f615e159-0fe4-4e0d-ad6c-818e176f369a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/__init__.py" afterPath="$PROJECT_DIR$/app/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/site/controller.py" afterPath="$PROJECT_DIR$/app/site/controller.py" />
     </list>
     <ignored path="flask-by-example.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,16 +33,26 @@
     <favorites_list name="flask-by-example" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.6450151">
+    <splitter split-orientation="horizontal" split-proportion="0.6261329">
       <split-first>
         <leaf>
           <file leaf-file-name="controller.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/UserMobileService/controller.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-107.611115">
+                  <caret line="418" column="40" selection-start-line="418" selection-start-column="34" selection-end-line="418" selection-end-column="40" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="controller.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/site/controller.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-17.23077">
-                  <caret line="223" column="42" selection-start-line="223" selection-start-column="42" selection-end-line="223" selection-end-column="42" />
+                <state vertical-scroll-proportion="0.8780488">
+                  <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
                   <folding>
-                    <element signature="e#48#91#0" expanded="true" />
+                    <element signature="e#48#61#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -57,11 +68,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="__init__.py" pinned="false" current-in-tab="true">
+          <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/__init__.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.8432056">
-                  <caret line="124" column="0" selection-start-line="124" selection-start-column="0" selection-end-line="124" selection-end-column="0" />
+                <state vertical-scroll-proportion="-17.23077">
+                  <caret line="104" column="16" selection-start-line="104" selection-start-column="16" selection-end-line="104" selection-end-column="16" />
                   <folding>
                     <element signature="e#38#47#0" expanded="true" />
                   </folding>
@@ -164,15 +175,15 @@
         <option value="$PROJECT_DIR$/app/templates/footer.html" />
         <option value="$PROJECT_DIR$/app/templates/add_stock.html" />
         <option value="$PROJECT_DIR$/app/templates/menus.html" />
-        <option value="$PROJECT_DIR$/app/UserMobileService/controller.py" />
         <option value="$PROJECT_DIR$/app/models.py" />
         <option value="$PROJECT_DIR$/app/templates/add_company.html" />
         <option value="$PROJECT_DIR$/app/templates/top_navigation.html" />
         <option value="$PROJECT_DIR$/app/templates/edit_company.html" />
         <option value="$PROJECT_DIR$/app/templates/companies_list.html" />
-        <option value="$PROJECT_DIR$/app/site/controller.py" />
         <option value="$PROJECT_DIR$/app/templates/stocks_list.html" />
+        <option value="$PROJECT_DIR$/app/UserMobileService/controller.py" />
         <option value="$PROJECT_DIR$/app/__init__.py" />
+        <option value="$PROJECT_DIR$/app/site/controller.py" />
       </list>
     </option>
   </component>
@@ -612,7 +623,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="35" column="69" selection-start-line="35" selection-start-column="69" selection-end-line="35" selection-end-column="69" />
           <folding>
-            <element signature="e#48#91#0" expanded="true" />
+            <element signature="e#48#61#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -677,7 +688,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="34" column="8" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="8" />
           <folding>
-            <element signature="e#48#91#0" expanded="true" />
+            <element signature="e#48#61#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -717,7 +728,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#48#91#0" expanded="true" />
+            <element signature="e#48#61#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -892,14 +903,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/UserMobileService/controller.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="426" column="41" selection-start-line="426" selection-start-column="25" selection-end-line="426" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/header.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-15.888889">
@@ -964,16 +967,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/site/controller.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.23077">
-          <caret line="223" column="42" selection-start-line="223" selection-start-column="42" selection-end-line="223" selection-end-column="42" />
-          <folding>
-            <element signature="e#48#91#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/stocks_list.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.555555">
@@ -992,10 +985,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8432056">
-          <caret line="124" column="0" selection-start-line="124" selection-start-column="0" selection-end-line="124" selection-end-column="0" />
+        <state vertical-scroll-proportion="-17.23077">
+          <caret line="104" column="16" selection-start-line="104" selection-start-column="16" selection-end-line="104" selection-end-column="16" />
           <folding>
             <element signature="e#38#47#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/UserMobileService/controller.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-107.611115">
+          <caret line="418" column="40" selection-start-line="418" selection-start-column="34" selection-end-line="418" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/site/controller.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8780488">
+          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+          <folding>
+            <element signature="e#48#61#0" expanded="true" />
           </folding>
         </state>
       </provider>
