@@ -115,12 +115,12 @@ def home():
     return render_template('companies_list.html', items=items)
 
 
-@mod_site.route('/stock_chart', methods=['GET', 'POST'])
+@mod_site.route('/stock_chart/<int:stock_id>', methods=['GET', 'POST'])
 # route for deleteShopItem function here
 @set_renderers(HTMLRenderer)
-def stock_chart():
+def stock_chart(stock_id):
     agent = None
-    stock = db.session.query(models.Stock).filter_by(id=1).one()
+    stock = db.session.query(models.Stock).filter_by(id=stock_id).one()
     items = db.session.query(models.StockValues).filter_by(stock_id=stock.id).all()
     return render_template('stock_chart.html', items=[item.serialize for item in items], agent=agent)
 
