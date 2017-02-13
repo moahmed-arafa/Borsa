@@ -312,6 +312,19 @@ def buy_stock_request():
     return {"response": -400}
 
 
+@mod_mobile_user.route('/getStockValues', methods=['GET', 'POST'])
+def buy_stock_request():
+    if request.headers.get('Authorization') == API_KEY:
+        req_json = request.get_json()
+        stock_id = req_json['stock_id']
+        if stock_id:
+            value = db.session.query(models.StockValues).filter_by(stock_id=stock_id).all()
+            return [item.serialize for item in value]
+        else:
+            return {"response": -2}
+    return {"response": -400}
+
+
 # add new stock
 @mod_mobile_user.route('/sellStockRequest', methods=['GET', 'POST'])
 def sell_stock_request():
