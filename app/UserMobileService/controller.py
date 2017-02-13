@@ -313,7 +313,7 @@ def buy_stock_request():
 
 
 @mod_mobile_user.route('/getStockValues', methods=['GET', 'POST'])
-def buy_stock_request():
+def get_stock_values():
     if request.headers.get('Authorization') == API_KEY:
         req_json = request.get_json()
         stock_id = req_json['stock_id']
