@@ -40,7 +40,7 @@ def update_stock():
             time.sleep(7*60)
 
 
-job = q.enqueue_call(func=update_stock)
+q.enqueue_call(func=update_stock)
 
 
 @mod_site.route('/list_companies_data')
@@ -53,7 +53,7 @@ def list_companies_data():
         ColumnDT(models.Company.name + "|" + models.Company.name_ar),
         ColumnDT(models.Company.phone),
         ColumnDT(models.Company.website),
-        # ColumnDT("<a class=\"fa fa-edit\" href=\"{{url_for('website.edit_com', tn=" + models.Company.id + ")}}\"></a>")
+        ColumnDT("<a class=\"fa fa-edit\" href=\"{{url_for('website.edit_com', tn=" + models.Company.symbol + ")}}\"></a>")
     ]
 
     # defining the initial query depending on your purpose
@@ -77,7 +77,7 @@ def list_stock_data():
         ColumnDT(models.Stock.init_no),
         ColumnDT(models.Stock.curr_no),
         ColumnDT(models.Stock.type),
-        # ColumnDT("<a class=\"fa fa-edit\" href=\"{{url_for('website.edit_com', tn=" + models.Company.id + ")}}\"></a>")
+        ColumnDT("<a class=\"fa fa-edit\" href=\"{{url_for('website.edit_com', tn=" + models.Company.symbol + ")}}\"></a>")
     ]
 
     # defining the initial query depending on your purpose
@@ -170,7 +170,7 @@ def add_company():
 # route for deleteShopItem function here
 @set_renderers(HTMLRenderer)
 def edit_company(com_id):
-    company = db.session.query(models.Company).filter_by(id=com_id).first()
+    company = db.session.query(models.Company).filter_by(symbol=com_id).first()
     if request.method == 'POST':
         try:
             company.name = request.form.get('com_name')
@@ -181,6 +181,8 @@ def edit_company(com_id):
             company.website = request.form.get('website')
             company.com_number = request.form.get('com_num')
             company.tax_number = request.form.get('tax_num')
+            company.com_number = request.form.get('longitude')
+            company.tax_number = request.form.get('latitude')
 
             print(company.serialize)
 
