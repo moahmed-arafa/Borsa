@@ -1,4 +1,3 @@
-import random
 from app import app, q, update_stock
 
 q.enqueue_call(func=update_stock, args=(), result_ttl=5000)

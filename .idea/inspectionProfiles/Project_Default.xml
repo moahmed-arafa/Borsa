@@ -4,7 +4,7 @@
     <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="ignoredPackages">
         <value>
-          <list size="30">
+          <list size="33">
             <item index="0" class="java.lang.String" itemvalue="gunicorn" />
             <item index="1" class="java.lang.String" itemvalue="alembic" />
             <item index="2" class="java.lang.String" itemvalue="Werkzeug" />
@@ -35,6 +35,9 @@
             <item index="27" class="java.lang.String" itemvalue="click" />
             <item index="28" class="java.lang.String" itemvalue="redis" />
             <item index="29" class="java.lang.String" itemvalue="rq" />
+            <item index="30" class="java.lang.String" itemvalue="marshmallow-sqlalchemy" />
+            <item index="31" class="java.lang.String" itemvalue="SQLAlchemy" />
+            <item index="32" class="java.lang.String" itemvalue="sqlalchemy-datatables" />
           </list>
         </value>
       </option>

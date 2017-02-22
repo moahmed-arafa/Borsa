@@ -1,7 +1,7 @@
 # Import flask and template operators
 import os
 import random
-from time import sleep
+import time
 
 from flask import render_template
 from flask_pushjack import FlaskGCM
@@ -110,13 +110,15 @@ def update_stock():
     stocks = db.session.query(models.Stock).all()
     if len(stocks) > 0:
         print(str(len(stocks)))
-        for stock in stocks:
-            v = stock.current_value
-            new_value = random.uniform(v - 10, v + 10)
-            if new_value > 0:
-                stock.current_value = new_value
-                stock.last_value = v
-                sv = models.StockValues(stock_id=stock.id, value=stock.current_value)
-                db.session.add(sv)
-                print(str(stock.id) + ":" + str(v) + "/" + str(stock.current_value))
-                db.session.commit()
+        while True:
+            for stock in stocks:
+                v = stock.current_value
+                new_value = random.uniform(v - 10, v + 10)
+                if new_value > 0:
+                    stock.current_value = new_value
+                    stock.last_value = v
+                    sv = models.StockValues(stock_id=stock.id, value=stock.current_value)
+                    db.session.add(sv)
+                    print(str(stock.id) + ":" + str(v) + "/" + str(stock.current_value))
+                    db.session.commit()
+            time.sleep(7*60)

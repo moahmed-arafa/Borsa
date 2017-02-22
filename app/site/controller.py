@@ -21,12 +21,6 @@ ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 ALLOWED_CSV = {'csv'}
 
 
-# def init_update():
-#     q.enqueue_call(func=update_stock)
-#
-# init_update()
-
-
 @mod_site.route('/list_companies_data')
 def list_companies_data():
     """Return server side data."""
@@ -37,8 +31,7 @@ def list_companies_data():
         ColumnDT(models.Company.name + "|" + models.Company.name_ar),
         ColumnDT(models.Company.phone),
         ColumnDT(models.Company.website),
-        ColumnDT(
-            "<a class=\"fa fa-edit\" href=\"{{url_for('website.edit_com', tn=" + models.Company.symbol + ")}}\"></a>")
+        ColumnDT("<a class=\"fa fa-edit\" href=\"{{url_for('website.edit_com', tn=" + models.Company.symbol + ")}}\"></a>")
     ]
 
     # defining the initial query depending on your purpose
@@ -62,8 +55,7 @@ def list_stock_data():
         ColumnDT(models.Stock.init_no),
         ColumnDT(models.Stock.curr_no),
         ColumnDT(models.Stock.type),
-        ColumnDT(
-            "<a class=\"fa fa-edit\" href=\"{{url_for('website.edit_com', tn=" + models.Company.symbol + ")}}\"></a>")
+        ColumnDT("<a class=\"fa fa-edit\" href=\"{{url_for('website.edit_com', tn=" + models.Company.symbol + ")}}\"></a>")
     ]
 
     # defining the initial query depending on your purpose
@@ -202,8 +194,7 @@ def add_stock():
             new_type = request.form.get('type')
             current_value = request.form.get('current_value')
 
-            new_stock = models.Stock(init_no=new_stock_init_value, type=new_type, company=company,
-                                     current_value=current_value)
+            new_stock = models.Stock(init_no=new_stock_init_value, type=new_type, company=company, current_value=current_value)
 
             db.session.add(new_stock)
             db.session.flush()
