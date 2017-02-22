@@ -16,9 +16,7 @@ reload(sys)
 sys.setdefaultencoding('utf8')
 
 __author__ = 'fantom'
-
 mod_site = Blueprint('website', __name__)
-
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 ALLOWED_CSV = {'csv'}
 
