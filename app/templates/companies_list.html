@@ -84,7 +84,7 @@
                             <td>{{ item.phone}}</td>
                             <td>{{ item.website }}</td>
                             <td>
-                                <a class="fa fa-edit" href="{{url_for('website.edit_company', com_id=item.id)}}"></a>
+                                <a class="fa fa-edit" href="{{url_for('website.edit_company', com_id=item.symbol)}}"></a>
                             </td>
                         </tr>
                         {% endfor %}
