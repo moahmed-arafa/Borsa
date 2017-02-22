@@ -42,7 +42,7 @@ def update_stock():
             time.sleep(7*60)
 
 
-update_stock()
+job = q.enqueue_call(func=update_stock)
 
 
 @mod_site.route('/list_companies_data')
