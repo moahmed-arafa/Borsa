@@ -181,8 +181,8 @@ def edit_company(com_id):
             company.website = request.form.get('website')
             company.com_number = request.form.get('com_num')
             company.tax_number = request.form.get('tax_num')
-            company.com_number = request.form.get('longitude')
-            company.tax_number = request.form.get('latitude')
+            company.longitude = request.form.get('longitude')
+            company.latitude = request.form.get('latitude')
 
             print(company.serialize)
 
