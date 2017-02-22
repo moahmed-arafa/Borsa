@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f615e159-0fe4-4e0d-ad6c-818e176f369a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/companies_list.html" afterPath="$PROJECT_DIR$/app/templates/companies_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/site/controller.py" afterPath="$PROJECT_DIR$/app/site/controller.py" />
     </list>
     <ignored path="flask-by-example.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -43,11 +44,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="controller.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="controller.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/site/controller.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.685185">
-              <caret line="184" column="59" selection-start-line="184" selection-start-column="59" selection-end-line="184" selection-end-column="59" />
+            <state vertical-scroll-proportion="0.03492647">
+              <caret line="168" column="39" selection-start-line="168" selection-start-column="39" selection-end-line="168" selection-end-column="39" />
               <folding>
                 <element signature="e#48#61#0" expanded="true" />
               </folding>
@@ -65,11 +66,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="companies_list.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="companies_list.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/templates/companies_list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6619965">
-              <caret line="89" column="40" selection-start-line="78" selection-start-column="28" selection-end-line="89" selection-end-column="40" />
+            <state vertical-scroll-proportion="-19.148148">
+              <caret line="188" column="21" selection-start-line="188" selection-start-column="21" selection-end-line="188" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -163,8 +164,8 @@
         <option value="$PROJECT_DIR$/Procfile" />
         <option value="$PROJECT_DIR$/worker.py" />
         <option value="$PROJECT_DIR$/app/templates/edit_company.html" />
-        <option value="$PROJECT_DIR$/app/site/controller.py" />
         <option value="$PROJECT_DIR$/app/templates/companies_list.html" />
+        <option value="$PROJECT_DIR$/app/site/controller.py" />
       </list>
     </option>
   </component>
@@ -962,13 +963,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/site/controller.py">
+    <entry file="file://$PROJECT_DIR$/app/templates/companies_list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.685185">
-          <caret line="184" column="59" selection-start-line="184" selection-start-column="59" selection-end-line="184" selection-end-column="59" />
-          <folding>
-            <element signature="e#48#61#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="-19.148148">
+          <caret line="188" column="21" selection-start-line="188" selection-start-column="21" selection-end-line="188" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -980,11 +979,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/companies_list.html">
+    <entry file="file://$PROJECT_DIR$/app/site/controller.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6619965">
-          <caret line="89" column="40" selection-start-line="78" selection-start-column="28" selection-end-line="89" selection-end-column="40" />
-          <folding />
+        <state vertical-scroll-proportion="0.03492647">
+          <caret line="168" column="39" selection-start-line="168" selection-start-column="39" selection-end-line="168" selection-end-column="39" />
+          <folding>
+            <element signature="e#48#61#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -166,7 +166,7 @@ def add_company():
         return render_template('add_company.html', agent=agent)
 
 
-@mod_site.route('/edit_company/<int:com_id>', methods=['GET', 'POST'])
+@mod_site.route('/edit_company/<string:com_id>', methods=['GET', 'POST'])
 # route for deleteShopItem function here
 @set_renderers(HTMLRenderer)
 def edit_company(com_id):

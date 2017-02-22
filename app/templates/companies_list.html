@@ -76,18 +76,18 @@
                         </tfoot>
 
                         <tbody>
-                        <!--{% for item in items %}-->
-                        <!--<tr>-->
-                            <!--<td>{{ item.id }}</td>-->
-                            <!--<td>{{ item.symbol }}</td>-->
-                            <!--<td>{{ item.name }} | {{ item.name_ar }}</td>-->
-                            <!--<td>{{ item.phone}}</td>-->
-                            <!--<td>{{ item.website }}</td>-->
-                            <!--<td>-->
-                                <!--<a class="fa fa-edit" href="{{url_for('website.edit_company', com_id=item.symbol)}}"></a>-->
-                            <!--</td>-->
-                        <!--</tr>-->
-                        <!--{% endfor %}-->
+                        {% for item in items %}
+                        <tr>
+                            <td>{{ item.id }}</td>
+                            <td>{{ item.symbol }}</td>
+                            <td>{{ item.name }} | {{ item.name_ar }}</td>
+                            <td>{{ item.phone}}</td>
+                            <td>{{ item.website }}</td>
+                            <td>
+                                <a class="fa fa-edit" href="{{url_for('website.edit_company', com_id=item.symbol)}}"></a>
+                            </td>
+                        </tr>
+                        {% endfor %}
                         </tbody>
                     </table>
                 </div>
@@ -186,7 +186,7 @@
 //            ]
 //            "processing": true,
 //            "serverSide": true,
-            "ajax": "{{ url_for('website.list_companies_data') }}"
+//            "ajax": "{{ url_for('website.list_companies_data') }}"
         });
 
         // Apply the search
