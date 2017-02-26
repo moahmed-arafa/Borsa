@@ -104,9 +104,9 @@ def get_stock():
         stock_id = req_json['stock_id']
         stock = db.session.query(models.Stock).filter_by(id=stock_id).first()
         if stock:
-            return stock.serialize
+            return jsonify(response=stock.serialize)
         else:
-            return -1
+            return jsonify(response=-1)
 
 
 @mod_mobile_user.route('/getBroker', methods=['GET', 'POST'])
