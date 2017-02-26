@@ -9,12 +9,12 @@ listen = ['default']
 
 redis_url = os.getenv('REDISTOGO_URL', 'redis://127.0.0.1:6379')
 
-# conn = redis.from_url(redis_url)
+conn = redis.from_url(redis_url)
 # redis_url = os.getenv('REDIS_URL')
 #
 # urlparse.uses_netloc.append('redis')
-url = urlparse.urlparse(redis_url)
-conn = Redis(host=url.hostname, port=url.port, db=0, password=url.password)
+# url = urlparse.urlparse(redis_url)
+# conn = Redis(host=url.hostname, port=url.port, db=0, password=url.password)
 
 if __name__ == '__main__':
     with Connection(conn):

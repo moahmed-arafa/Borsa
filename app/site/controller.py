@@ -21,6 +21,34 @@ ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 ALLOWED_CSV = {'csv'}
 
 
+def update_stock():
+    print("update stocks")
+    stocks = db.session.query(models.Stock).all()
+    if len(stocks) > 0:
+        print(str(len(stocks)))
+        while True:
+            for stock in stocks:
+                v = stock.current_value
+                new_value = random.uniform(v - 10, v + 10)
+                if new_value > 0:
+                    stock.current_value = new_value
+                    stock.last_value = v
+                    sv = models.StockValues(stock_id=stock.id, value=stock.current_value)
+                    db.session.add(sv)
+                    print(str(stock.id) + ":" + str(v) + "/" + str(stock.current_value))
+                    db.session.commit()
+            time.sleep(7*60)
+        return
+
+
+job = q.enqueue_call(func=update_stock, args=(), result_ttl=5000)
+
+
+@mod_site.route('/start_data')
+def start_data():
+    return jsonify(status="started")
+
+
 @mod_site.route('/list_companies_data')
 def list_companies_data():
     """Return server side data."""
