@@ -108,7 +108,7 @@ def get_stock():
         print(str(stock_id))
         stock = db.session.query(models.Stock).filter_by(id=stock_id).first()
         if stock:
-            print(json.dumps(stock.serialize))
+            print(json.dumps(stock.serialize, default=date_handler))
             return jsonify(response=stock.serialize)
         else:
             return jsonify(response=-1)
