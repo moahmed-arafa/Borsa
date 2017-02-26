@@ -100,6 +100,7 @@ def get_company():
 @mod_mobile_user.route('/getStock', methods=['GET', 'POST'])
 def get_stock():
     if request.headers.get('Authorization') == API_KEY:
+        print(request.get_data(as_text=True))
         req_json = request.get_json()
         print(req_json)
         stock_id = req_json['stock_id']
