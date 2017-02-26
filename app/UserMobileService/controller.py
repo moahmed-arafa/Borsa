@@ -1,4 +1,5 @@
 # coding=utf-8
+import json
 from flask import Blueprint, request, jsonify
 from sqlalchemy import desc
 from app import db, API_KEY, client
@@ -101,7 +102,7 @@ def get_company():
 def get_stock():
     if request.headers.get('Authorization') == API_KEY:
         print(request.get_data(as_text=True))
-        req_json = request.get_json()
+        req_json = json.dumps(request.get_data(as_text=True))
         print(req_json)
         stock_id = req_json['stock_id']
         print(str(stock_id))
