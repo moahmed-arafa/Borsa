@@ -102,7 +102,7 @@ def get_company():
 def get_stock():
     if request.headers.get('Authorization') == API_KEY:
         print(request.get_data(as_text=True))
-        req_json = request.get_data(as_text=True)
+        req_json = json.loads(request.get_data(as_text=True))
         print(req_json)
         stock_id = req_json['stock_id']
         print(str(stock_id))
