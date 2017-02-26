@@ -102,6 +102,7 @@ def get_stock():
     if request.headers.get('Authorization') == API_KEY:
         req_json = request.get_json()
         stock_id = req_json['stock_id']
+        print(str(stock_id))
         stock = db.session.query(models.Stock).filter_by(id=stock_id).first()
         if stock:
             return jsonify(response=stock.serialize)
