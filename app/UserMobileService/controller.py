@@ -25,7 +25,7 @@ def login_customer():
         user = db.session.query(models.Customer).filter_by(email=username).all()
         if len(user) > 0:
             if user[0].password == password:
-                return user[0].serialize
+                return {"response": user[0].id}
             else:
                 # wrong password
                 return {"response": -1}
@@ -44,7 +44,7 @@ def login_broker():
         user = db.session.query(models.Broker).filter_by(email=username).all()
         if len(user) > 0:
             if user[0].password == password:
-                return user[0].serialize
+                return {"response": user[0].id}
             else:
                 # wrong password
                 return {"response": -1}
@@ -63,7 +63,7 @@ def login_company():
         user = db.session.query(models.Company).filter_by(email=username).all()
         if len(user) > 0:
             if user[0].password == password:
-                return user[0].serialize
+                return {"response":user[0].id}
             else:
                 # wrong password
                 return {"response": -1}
