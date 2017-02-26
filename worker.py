@@ -7,7 +7,7 @@ import redis
 
 listen = ['default']
 
-redis_url = os.getenv('REDISTOGO_URL', 'redis://localhost:6379')
+redis_url = os.getenv('REDISTOGO_URL', 'redis://127.0.0.1:6379')
 
 conn = redis.from_url(redis_url)
 # redis_url = os.getenv('REDIS_URL')
