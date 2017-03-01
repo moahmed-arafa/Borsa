@@ -101,11 +101,8 @@ def get_company():
 @mod_mobile_user.route('/getStock', methods=['GET', 'POST'])
 def get_stock():
     if request.headers.get('Authorization') == API_KEY:
-        print(request.get_data(as_text=True))
         req_json = json.loads(request.get_data(as_text=True))
-        print(req_json)
         stock_id = req_json['stock_id']
-        print(str(stock_id))
         stock = db.session.query(models.Stock).filter_by(id=stock_id).first()
         if stock:
             print(json.dumps(stock.serialize, default=date_handler))
@@ -320,7 +317,9 @@ def buy_stock_request():
 @mod_mobile_user.route('/getStockValues', methods=['GET', 'POST'])
 def get_stock_values():
     if request.headers.get('Authorization') == API_KEY:
-        req_json = request.get_json()
+        # req_json = request.get_json()
+        # stock_id = req_json['stock_id']
+        req_json = json.loads(request.get_data(as_text=True))
         stock_id = req_json['stock_id']
         if stock_id:
             value = db.session.query(models.StockValues).filter_by(stock_id=stock_id).all()
