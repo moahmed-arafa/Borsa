@@ -7,7 +7,7 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>Products</h3>
+                <h3>Stock Requests</h3>
             </div>
 
             <div class="title_right">
@@ -28,8 +28,8 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Products List
-                        <small>Products</small>
+                    <h2>Stock Requests List
+                        <small>Stock Requests</small>
                     </h2>
                     <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -51,42 +51,50 @@
                 </div>
                 <div class="x_content">
                     <p class="text-muted font-13 m-b-30">
-                        Products list to view and edit.
+                        Stock Requests list to view and edit.
                     </p>
                     <table id="datatable" class="display table table-striped table-bordered">
                         <thead>
                         <tr>
-                            <th>ID</th>
-                            <th>Code</th>
-                            <th>Name</th>
-                            <th>phone</th>
-                            <th>website</th>
+                            <th>Type</th>
+                            <th>C.Name</th>
+                            <th>S.Symbol</th>
+                            <th>R.Date</th>
+                            <th>S.Price</th>
                         </tr>
                         </thead>
 
                         <tfoot>
                         <tr>
-                            <th>ID</th>
-                            <th>Code</th>
-                            <th>Name</th>
-                            <th>phone</th>
-                            <th>website</th>
-                            <th>Edit</th>
+                            <th>Type</th>
+                            <th>C.Name</th>
+                            <th>S.Symbol</th>
+                            <th>R.Date</th>
+                            <th>S.Price</th>
                         </tr>
                         </tfoot>
 
                         <tbody>
                         {% for item in items %}
-                        <tr>
-                            <td>{{ item.id }}</td>
-                            <td>{{ item.symbol }}</td>
-                            <td>{{ item.name }} | {{ item.name_ar }}</td>
-                            <td>{{ item.phone}}</td>
-                            <td>{{ item.website }}</td>
-                            <td>
-                                <a class="fa fa-edit" href="{{url_for('website.edit_company', com_id=item.symbol)}}"></a>
-                            </td>
+                        {% if item.type == 1 %}
+                        <tr style="color: #ff0008;">
+
+                            <td>Buy</td>
+
+                            <td>{{ item.stock.symbol }}</td>
+                            <td>{{ item.customer.first_name }} | {{ item.customer.last_name }}</td>
+                            <td>{{ item.date_add }}</td>
+                            <td>{{ item.value.value }}</td>
                         </tr>
+                        {% else %}
+                        <tr style="color: #11ff00;">
+                            <td>Sell</td>
+                            <td>{{ item.stock.symbol }}</td>
+                            <td>{{ item.customer.first_name }} | {{ item.customer.last_name }}</td>
+                            <td>{{ item.date_add }}</td>
+                            <td>{{ item.value.value }}</td>
+                        </tr>
+                        {% endif %}
                         {% endfor %}
                         </tbody>
                     </table>

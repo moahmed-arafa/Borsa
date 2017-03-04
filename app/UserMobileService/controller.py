@@ -292,6 +292,21 @@ def add_stock():
     return {"response": -400}
 
 
+@mod_mobile_user.route('/getStockValues', methods=['GET', 'POST'])
+def get_stock_values():
+    if request.headers.get('Authorization') == API_KEY:
+        # req_json = request.get_json()
+        # stock_id = req_json['stock_id']
+        req_json = json.loads(request.get_data(as_text=True))
+        stock_id = req_json['stock_id']
+        if stock_id:
+            value = db.session.query(models.StockValues).filter_by(stock_id=stock_id).all()
+            return [item.serialize for item in value]
+        else:
+            return {"response": -2}
+    return {"response": -400}
+
+
 # add new stock
 @mod_mobile_user.route('/buyStockRequest', methods=['GET', 'POST'])
 def buy_stock_request():
@@ -309,21 +324,6 @@ def buy_stock_request():
             db.session.flush()
             db.session.commit()
             return {"response": stock_request.id}
-        else:
-            return {"response": -2}
-    return {"response": -400}
-
-
-@mod_mobile_user.route('/getStockValues', methods=['GET', 'POST'])
-def get_stock_values():
-    if request.headers.get('Authorization') == API_KEY:
-        # req_json = request.get_json()
-        # stock_id = req_json['stock_id']
-        req_json = json.loads(request.get_data(as_text=True))
-        stock_id = req_json['stock_id']
-        if stock_id:
-            value = db.session.query(models.StockValues).filter_by(stock_id=stock_id).all()
-            return [item.serialize for item in value]
         else:
             return {"response": -2}
     return {"response": -400}
