@@ -316,6 +316,7 @@ def buy_stock_request():
         customer_id = req_json['customer_id']
         no_stocks = req_json['no_stocks']
         stock = db.session.query(models.Stock).filter_by(id=stock_id).first()
+        print(str(stock.curr_no))
         if stock.curr_no is None:
             curr_no = stock.init_no
         else:
