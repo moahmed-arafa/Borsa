@@ -316,7 +316,11 @@ def buy_stock_request():
         customer_id = req_json['customer_id']
         no_stocks = req_json['no_stocks']
         stock = db.session.query(models.Stock).filter_by(id=stock_id).first()
-        if stock.curr_no > no_stocks:
+        if stock.curr_no is None:
+            curr_no = stock.init_no
+        else:
+            curr_no = stock.curr_no
+        if curr_no > no_stocks:
             customer = db.session.query(models.Customer).filter_by(id=customer_id).first()
             value = db.session.query(models.StockValues).filter_by(stock_id=stock_id).first()
             stock_request = models.Request(type=1, stock=stock, customer=customer, no_stocks=no_stocks, value=value)
