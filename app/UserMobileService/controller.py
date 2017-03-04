@@ -39,7 +39,7 @@ def login_customer():
 @mod_mobile_user.route('/loginBroker', methods=['GET', 'POST'])
 def login_broker():
     if request.headers.get('Authorization') == API_KEY:
-        req_json = request.get_json()
+        req_json = json.loads(request.get_data(as_text=True))
         username = req_json['email']
         password = req_json['password']
         user = db.session.query(models.Broker).filter_by(email=username).all()
@@ -58,7 +58,7 @@ def login_broker():
 @mod_mobile_user.route('/loginCompany', methods=['GET', 'POST'])
 def login_company():
     if request.headers.get('Authorization') == API_KEY:
-        req_json = request.get_json()
+        req_json = json.loads(request.get_data(as_text=True))
         username = req_json['email']
         password = req_json['password']
         user = db.session.query(models.Company).filter_by(email=username).all()
@@ -77,7 +77,7 @@ def login_company():
 @mod_mobile_user.route('/getCustomer', methods=['GET', 'POST'])
 def get_customer():
     if request.headers.get('Authorization') == API_KEY:
-        req_json = request.get_json()
+        req_json = json.loads(request.get_data(as_text=True))
         user_id = req_json['user_id']
         user = db.session.query(models.Customer).filter_by(id=user_id).first()
         if user:
@@ -89,7 +89,7 @@ def get_customer():
 @mod_mobile_user.route('/getCompany', methods=['GET', 'POST'])
 def get_company():
     if request.headers.get('Authorization') == API_KEY:
-        req_json = request.get_json()
+        req_json = json.loads(request.get_data(as_text=True))
         user_id = req_json['user_id']
         user = db.session.query(models.Company).filter_by(id=user_id).first()
         if user:
@@ -114,7 +114,7 @@ def get_stock():
 @mod_mobile_user.route('/getBroker', methods=['GET', 'POST'])
 def get_broker():
     if request.headers.get('Authorization') == API_KEY:
-        req_json = request.get_json()
+        req_json = json.loads(request.get_data(as_text=True))
         user_id = req_json['user_id']
         user = db.session.query(models.Broker).filter_by(id=user_id).first()
         if user:
@@ -134,7 +134,7 @@ def get_all_companies():
 @mod_mobile_user.route('/signupCustomer', methods=['GET', 'POST'])
 def signup_customer():
     if request.headers.get('Authorization') == API_KEY:
-        req_json = request.get_json()
+        req_json = json.loads(request.get_data(as_text=True))
         first_name = req_json['first_name']
         last_name = req_json['last_name']
         username = req_json['email']
@@ -172,7 +172,7 @@ def signup_customer():
 def signup_company():
     global phone, address, com_number, latitude, longitude, tax_number
     if request.headers.get('Authorization') == API_KEY:
-        req_json = request.get_json()
+        req_json = json.loads(request.get_data(as_text=True))
         name = req_json['name']
         if req_json['phone']:
             phone = req_json['phone']
@@ -222,7 +222,7 @@ def signup_company():
 @mod_mobile_user.route('/signupBroker', methods=['GET', 'POST'])
 def signup_broker():
     if request.headers.get('Authorization') == API_KEY:
-        req_json = request.get_json()
+        req_json = json.loads(request.get_data(as_text=True))
         first_name = req_json['first_name']
         last_name = req_json['last_name']
         username = req_json['email']
@@ -261,7 +261,7 @@ def signup_broker():
 @mod_mobile_user.route('/registerDevice', methods=['GET', 'POST'])
 def register_device():
     if request.headers.get('Authorization') == API_KEY:
-        req_json = request.get_json()
+        req_json = json.loads(request.get_data(as_text=True))
         device_token = req_json['device_token']
         token = models.DeviceToken(device_token=device_token)
         print(device_token)
@@ -276,7 +276,7 @@ def register_device():
 @mod_mobile_user.route('/addStock', methods=['GET', 'POST'])
 def add_stock():
     if request.headers.get('Authorization') == API_KEY:
-        req_json = request.get_json()
+        req_json = json.loads(request.get_data(as_text=True))
         company_id = req_json['company_id']
         stock_type = req_json['type']
         init_no = req_json['init_no']
@@ -311,7 +311,7 @@ def get_stock_values():
 @mod_mobile_user.route('/buyStockRequest', methods=['GET', 'POST'])
 def buy_stock_request():
     if request.headers.get('Authorization') == API_KEY:
-        req_json = request.get_json()
+        req_json = json.loads(request.get_data(as_text=True))
         stock_id = req_json['stock_id']
         customer_id = req_json['customer_id']
         no_stocks = req_json['no_stocks']
@@ -333,7 +333,7 @@ def buy_stock_request():
 @mod_mobile_user.route('/sellStockRequest', methods=['GET', 'POST'])
 def sell_stock_request():
     if request.headers.get('Authorization') == API_KEY:
-        req_json = request.get_json()
+        req_json = json.loads(request.get_data(as_text=True))
         stock_id = req_json['stock_id']
         customer_id = req_json['customer_id']
         no_stocks = req_json['no_stocks']
@@ -361,7 +361,7 @@ def sell_stock_request():
 @mod_mobile_user.route('/buyStockRequestConfirm', methods=['GET', 'POST'])
 def buy_stock_request_confirm():
     if request.headers.get('Authorization') == API_KEY:
-        req_json = request.get_json()
+        req_json = json.loads(request.get_data(as_text=True))
         stock_request_id = req_json['stock_request_id']
         broker_id = req_json['broker_id']
         stock_request = db.session.query(models.Request).filter_by(id=stock_request_id).first()
@@ -393,7 +393,7 @@ def buy_stock_request_confirm():
 @mod_mobile_user.route('/sellStockRequestConfirm', methods=['GET', 'POST'])
 def sell_stock_request_confirm():
     if request.headers.get('Authorization') == API_KEY:
-        req_json = request.get_json()
+        req_json = json.loads(request.get_data(as_text=True))
         stock_request_id = req_json['stock_request_id']
         broker_id = req_json['broker_id']
         stock_request = db.session.query(models.Request).filter_by(id=stock_request_id).first()
@@ -429,7 +429,7 @@ def get_all_stocks():
 @mod_mobile_user.route('/updateStockValve', methods=['GET', 'POST'])
 def update_stock_value():
     if request.headers.get('Authorization') == API_KEY:
-        req_json = request.get_json()
+        req_json = json.loads(request.get_data(as_text=True))
         stock_id = req_json['stock_id']
         value = req_json['value']
         stock = db.session.query(models.Stock).filter_by(id=stock_id).first()
@@ -444,7 +444,7 @@ def update_stock_value():
 @mod_mobile_user.route('/getCompanyStocks', methods=['GET', 'POST'])
 def get_company_stocks():
     if request.headers.get('Authorization') == API_KEY:
-        req_json = request.get_json()
+        req_json = json.loads(request.get_data(as_text=True))
         company_id = req_json['company_id']
         stock = db.session.query(models.Stock).filter_by(company_id=company_id).all()
         return [item.serialize for item in stock]
@@ -455,7 +455,7 @@ def get_company_stocks():
 @mod_mobile_user.route('/getUserStocks', methods=['GET', 'POST'])
 def get_user_stocks():
     if request.headers.get('Authorization') == API_KEY:
-        req_json = request.get_json()
+        req_json = json.loads(request.get_data(as_text=True))
         customer_id = req_json['customer_id']
         stock = db.session.query(models.CustomerStocks).filter_by(customer_id=customer_id).all()
         return [item.serialize for item in stock]
