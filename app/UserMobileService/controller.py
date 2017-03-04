@@ -20,7 +20,7 @@ def date_handler(obj):
 @mod_mobile_user.route('/loginCustomer', methods=['GET', 'POST'])
 def login_customer():
     if request.headers.get('Authorization') == API_KEY:
-        req_json = request.get_json()
+        req_json = json.loads(request.get_data(as_text=True))
         username = req_json['email']
         password = req_json['password']
         user = db.session.query(models.Customer).filter_by(email=username).all()
