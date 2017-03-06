@@ -173,12 +173,12 @@ def get_values():
     return [item.serialize for item in items]
 
 
-@mod_site.route('/', methods=['GET', 'POST'])
-# route for deleteShopItem function here
-@set_renderers(HTMLRenderer)
-def home():
-    items = db.session.query(models.Company).all()
-    return render_template('companies_list.html', items=items)
+# @mod_site.route('/', methods=['GET', 'POST'])
+# # route for deleteShopItem function here
+# @set_renderers(HTMLRenderer)
+# def home():
+#     items = db.session.query(models.Company).all()
+#     return render_template('companies_list.html', items=items)
 
 
 @mod_site.route('/stock_chart/<int:stock_id>', methods=['GET', 'POST'])
