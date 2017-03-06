@@ -61,6 +61,7 @@
                             <th>S.Symbol</th>
                             <th>R.Date</th>
                             <th>S.Price</th>
+                            <th>Confirm</th>
                         </tr>
                         </thead>
 
@@ -71,6 +72,7 @@
                             <th>S.Symbol</th>
                             <th>R.Date</th>
                             <th>S.Price</th>
+                            <th></th>
                         </tr>
                         </tfoot>
 
@@ -78,13 +80,17 @@
                         {% for item in items %}
                         {% if item.type == 1 %}
                         <tr style="color: #ff0008;">
-
                             <td>Buy</td>
-
                             <td>{{ item.stock.symbol }}</td>
                             <td>{{ item.customer.first_name }} | {{ item.customer.last_name }}</td>
                             <td>{{ item.date_add }}</td>
                             <td>{{ item.value.value }}</td>
+                            <td>
+                                <a class="fa fa-edit" href="{{url_for('website.stock_request_confirm', stock_request_id=item.id)}}"></a>
+                            </td>
+                            <td>
+                                <!--<a class="fa fa-edit" href="{{url_for('website.edit_company', com_id=item.symbol)}}"></a>-->
+                            </td>
                         </tr>
                         {% else %}
                         <tr style="color: #11ff00;">
@@ -107,7 +113,7 @@
 <!-- footer content -->
 <footer>
     <div class="pull-right">
-        ZeOwls ltd<a href="https://ZeOwls.com">ZeOwls.com</a>
+        ZeOwls ltd <a href="https://ZeOwls.com">ZeOwls.com</a>
     </div>
     <div class="clearfix"></div>
 </footer>

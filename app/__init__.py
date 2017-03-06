@@ -66,11 +66,9 @@ event.listen(mapper, 'after_configured', setup_schema(Base, db.session))
 
 q = Queue(connection=conn)
 
-
-#
-# # Login Manager Init
-# login_manager = LoginManager()
-# login_manager.init_app(app)
+# Login Manager Init
+login_manager = LoginManager()
+login_manager.init_app(app)
 
 
 # Sample HTTP error handling

@@ -2,11 +2,12 @@
 import random
 from datatables import ColumnDT, DataTables
 from flask import Blueprint, request, render_template, flash, redirect, url_for, Response, jsonify
-from app import db, models, q, client
+from app import db, models, q, client, login_manager
 from flask.ext.api.decorators import set_renderers
 from flask.ext.api.renderers import HTMLRenderer
 from HTMLParser import HTMLParser
 from werkzeug.utils import secure_filename
+from flask.ext.login import login_required, login_user, logout_user, current_user
 import time
 # encoding=utf8
 import sys
@@ -19,6 +20,67 @@ __author__ = 'fantom'
 mod_site = Blueprint('website', __name__)
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 ALLOWED_CSV = {'csv'}
+
+
+@mod_site.route('/unauthorized')
+@set_renderers(HTMLRenderer)
+@login_manager.unauthorized_handler
+def unauthorized_handler():
+    return render_template('login.html')
+
+
+@login_manager.user_loader
+def load_user(broker_id):
+    print("agent_id: " + str(broker_id))
+    agent = db.session.query(models.Broker).filter_by(id=broker_id).first()
+    if agent:
+        print("agent is_authenticated: " + str(agent.is_authenticated))
+    return agent
+
+
+@mod_site.route('/home')
+# route for GetShopItems function here
+@set_renderers(HTMLRenderer)
+def home():
+    if current_user.is_authenticated:
+        agent = db.session.query(models.Broker).filter_by(id=int(current_user.id)).one()
+        return render_template('companies_list.html', agent=agent)
+    else:
+        return redirect(url_for('website.unauthorized_handler'))
+
+
+# somewhere to logout
+@mod_site.route("/logout")
+def logout():
+    logout_user()
+    return redirect(url_for('website.welcome'))
+
+
+@mod_site.route('/')
+@set_renderers(HTMLRenderer)
+def welcome():
+    # Welcome.
+    print("current: " + str(current_user.is_authenticated))
+    if current_user.is_authenticated:
+        return redirect(url_for('website.home'))
+    else:
+        return redirect(url_for('website.login_broker'))
+
+
+@mod_site.route('/signUpBroker', methods=['GET', 'POST'])
+# route for GetShopItems function here
+@set_renderers(HTMLRenderer)
+def sign_up_agent():
+    if request.method == 'POST':
+        if request.form['first_name'] and request.form['last_name']:
+            new_agent = models.Broker(first_name=request.form['first_name'], last_name=request.form['last_name'],
+                                      email=request.form['email'], password=request.form['passwd'])
+            db.session.add(new_agent)
+            new_agent.authenticated = True
+            db.session.commit()
+            login_user(new_agent)
+            return redirect(url_for('website.home'))
+    return redirect(url_for('website.login_agent'))
 
 
 def update_stock():
@@ -236,6 +298,37 @@ def add_stock():
             traceback.print_exc()
     else:
         return render_template('add_stock.html', agent=agent)
+
+
+# add new stock
+@mod_site.route('/StockRequestConfirm/<int:stock_request_id>', methods=['GET', 'POST'])
+def stock_request_confirm(stock_request_id):
+    if current_user.is_authenticated:
+        # broker_id = cu
+        stock_request = db.session.query(models.Request).filter_by(id=stock_request_id).first()
+        stock = db.session.query(models.Stock).filter_by(id=stock_request.stock.id).first()
+        customer_stock = db.session.query(models.CustomerStocks).filter_by(
+                stock_id=stock_request.stock.id, customer_id=stock_request.customer.id).first()
+        if None is customer_stock:
+            customer = db.session.query(models.Customer).filter_by(id=stock_request.customer.id).first()
+            customer_stock = models.CustomerStocks(stock=stock, customer=customer)
+        if stock_request.no_stocks <= stock.curr_no:
+            broker = db.session.query(models.Broker).filter_by(id=int(current_user.id)).first()
+            stock_request.broker = broker
+            stock.curr_no = stock.curr_no - stock_request.no_stocks
+            if None is customer_stock.quantity:
+                customer_stock.quantity = stock_request.no_stocks
+            else:
+                customer_stock.quantity = customer_stock.quantity + stock_request.no_stocks
+            # ToDo make credit transaction and update balance
+            db.session.add(stock_request)
+            db.session.flush()
+            db.session.commit()
+            return render_template('request_confirmed.html')
+        else:
+            return render_template('page_500.html')
+    else:
+        return redirect(url_for('website.unauthorized_handler'))
 
 
 @mod_site.route('/get_companies_list')
