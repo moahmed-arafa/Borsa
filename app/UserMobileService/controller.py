@@ -325,7 +325,7 @@ def buy_stock_request():
         if int(curr_no) >= int(no_stocks):
             customer = db.session.query(models.Customer).filter_by(id=customer_id).first()
             value = db.session.query(models.StockValues).filter_by(stock_id=stock_id).first()
-            stock_request = models.Request(type=1, stock=stock, customer=customer, no_stocks=no_stocks, value=value)
+            stock_request = models.Request(type=bin(1), stock=stock, customer=customer, no_stocks=no_stocks, value=value)
             db.session.add(stock_request)
             db.session.flush()
             db.session.commit()
@@ -351,7 +351,7 @@ def sell_stock_request():
             if customer_stock.quantity >= no_stocks:
                 value = db.session.query(models.StockValues).filter_by(stock_id=stock_id).order_by(
                     desc(models.StockValues.date_add)).first()
-                stock_request = models.Request(type=0, stock=stock, customer=customer, no_stocks=no_stocks, value=value)
+                stock_request = models.Request(type=bin(0), stock=stock, customer=customer, no_stocks=no_stocks, value=value)
                 db.session.add(stock_request)
                 db.session.flush()
                 db.session.commit()
