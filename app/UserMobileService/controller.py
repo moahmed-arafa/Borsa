@@ -348,7 +348,7 @@ def sell_stock_request():
         customer_stock = db.session.query(models.CustomerStocks).filter_by(stock_id=stock_id,
                                                                            customer_id=customer_id).first()
         if None is customer_stock:
-            if customer_stock.quantity >= no_stocks:
+            if customer_stock.quantity or customer_stock.quantity >= no_stocks:
                 value = db.session.query(models.StockValues).filter_by(stock_id=stock_id).order_by(
                     desc(models.StockValues.date_add)).first()
                 stock_request = models.Request(type=bin(0), stock=stock, customer=customer, no_stocks=no_stocks, value=value)
