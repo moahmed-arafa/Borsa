@@ -321,6 +321,7 @@ def buy_stock_request():
             curr_no = stock.curr_no
         else:
             curr_no = stock.init_no
+        print("requested stocks: "+str(curr_no)+"/"+str(no_stocks))
         if curr_no > no_stocks:
             customer = db.session.query(models.Customer).filter_by(id=customer_id).first()
             value = db.session.query(models.StockValues).filter_by(stock_id=stock_id).first()
