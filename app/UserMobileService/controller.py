@@ -64,7 +64,7 @@ def login_company():
         user = db.session.query(models.Company).filter_by(email=username).all()
         if len(user) > 0:
             if user[0].password == password:
-                return {"response":user[0].id}
+                return {"response": user[0].id}
             else:
                 # wrong password
                 return {"response": -1}
@@ -321,7 +321,7 @@ def buy_stock_request():
             curr_no = stock.curr_no
         else:
             curr_no = stock.init_no
-        print("requested stocks: "+str(curr_no)+"/"+str(no_stocks))
+        print("requested stocks: " + str(curr_no) + "/" + str(no_stocks) + str(curr_no > no_stocks))
         if curr_no > no_stocks:
             customer = db.session.query(models.Customer).filter_by(id=customer_id).first()
             value = db.session.query(models.StockValues).filter_by(stock_id=stock_id).first()
