@@ -80,7 +80,9 @@ def get_customer():
         req_json = json.loads(request.get_data(as_text=True))
         user_id = req_json['user_id']
         user = db.session.query(models.Customer).filter_by(id=user_id).first()
+        print(str(user_id))
         if user:
+            print(user.serialize)
             return {"response": user.serialize}
         else:
             return jsonify(response=-1)
