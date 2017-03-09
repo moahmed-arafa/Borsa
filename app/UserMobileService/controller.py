@@ -83,7 +83,7 @@ def get_customer():
         print(str(user_id))
         if user:
             print(user.serialize)
-            return {"response": user.serialize}
+            return jsonify(response=user.serialize)
         else:
             return jsonify(response=-1)
 
