@@ -86,6 +86,7 @@ def get_customer():
             return {"response": user.serialize}
         else:
             return {"response": -1}
+    return {"response": -400}
 
 
 @mod_mobile_user.route('/getCompany', methods=['GET', 'POST'])
@@ -98,6 +99,7 @@ def get_company():
             return {"response": user.serialize}
         else:
             return {"response": -1}
+    return {"response": -400}
 
 
 @mod_mobile_user.route('/getStock', methods=['GET', 'POST'])
@@ -123,6 +125,7 @@ def get_broker():
             return {"response": user.serialize}
         else:
             return {"response": -1}
+    return {"response": -400}
 
 
 @mod_mobile_user.route('/getAllCompanies', methods=['GET', 'POST'])
@@ -130,6 +133,7 @@ def get_all_companies():
     if request.headers.get('Authorization') == API_KEY:
         companies = db.session.query(models.Company).all()
         return [item.serialize for item in companies]
+    return {"response": -400}
 
 
 # sign up user by @email and @password
