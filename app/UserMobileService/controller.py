@@ -83,9 +83,9 @@ def get_customer():
         print(str(user_id))
         if user:
             print(user.serialize)
-            return jsonify(user.serialize)
+            return {"response": user.serialize}
         else:
-            return jsonify(response=-1)
+            return {"response": -1}
 
 
 @mod_mobile_user.route('/getCompany', methods=['GET', 'POST'])
@@ -95,9 +95,9 @@ def get_company():
         user_id = req_json['user_id']
         user = db.session.query(models.Company).filter_by(id=user_id).first()
         if user:
-            return jsonify(response=user.serialize)
+            return {"response": user.serialize}
         else:
-            return jsonify(response=-1)
+            return {"response": -1}
 
 
 @mod_mobile_user.route('/getStock', methods=['GET', 'POST'])
@@ -327,7 +327,8 @@ def buy_stock_request():
         if int(curr_no) >= int(no_stocks):
             customer = db.session.query(models.Customer).filter_by(id=customer_id).first()
             value = db.session.query(models.StockValues).filter_by(stock_id=stock_id).first()
-            stock_request = models.Request(type=bin(1), stock=stock, customer=customer, no_stocks=no_stocks, value=value)
+            stock_request = models.Request(type=bin(1), stock=stock, customer=customer, no_stocks=no_stocks,
+                                           value=value)
             db.session.add(stock_request)
             db.session.flush()
             db.session.commit()
@@ -353,7 +354,8 @@ def sell_stock_request():
             if customer_stock.quantity >= no_stocks:
                 value = db.session.query(models.StockValues).filter_by(stock_id=stock_id).order_by(
                     desc(models.StockValues.date_add)).first()
-                stock_request = models.Request(type=bin(0), stock=stock, customer=customer, no_stocks=no_stocks, value=value)
+                stock_request = models.Request(type=bin(0), stock=stock, customer=customer, no_stocks=no_stocks,
+                                               value=value)
                 db.session.add(stock_request)
                 db.session.flush()
                 db.session.commit()
