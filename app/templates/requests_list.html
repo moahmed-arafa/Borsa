@@ -86,9 +86,9 @@
                                    onclick="return confirm('Are you sure you would like to Confirm this ID {{ item.id }} ?');"
                                    href="{{url_for('website.stock_request_confirm', stock_request_id=item.id)}}">
                                     {{ item.id }}
-                                    {% if item.type == 1|bin %}
+                                    {% if item.type == 1 %}
                                     <small>Buy</small>
-                                    {% else %}
+                                    {% elif item.type == 0 %}
                                     <small>Sell</small>
                                     {% endif %} </a>
                             </td>
