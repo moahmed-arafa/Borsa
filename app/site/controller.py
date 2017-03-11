@@ -339,7 +339,11 @@ def stock_request_confirm(stock_request_id):
             if None is customer_stock:
                 customer = db.session.query(models.Customer).filter_by(id=stock_request.customer.id).first()
                 customer_stock = models.CustomerStocks(stock=stock, customer=customer)
-                if int(stock_request.no_stocks) <= int(stock.curr_no):
+                if stock.curr_no:
+                    curr_no = stock.curr_no
+                else:
+                    curr_no = stock.init_no
+                if int(stock_request.no_stocks) <= int(curr_no):
                     stock_request.broker = broker
                     stock.curr_no = int(stock.curr_no) - int(stock_request.no_stocks)
                     if None is customer_stock.quantity:
