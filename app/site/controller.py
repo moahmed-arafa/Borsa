@@ -101,7 +101,7 @@ def sign_up_agent():
             db.session.commit()
             login_user(new_agent)
             return redirect(url_for('website.home'))
-    return redirect(url_for('website.login_agent'))
+    return redirect(url_for('website.login_broker'))
 
 
 def update_stock():
