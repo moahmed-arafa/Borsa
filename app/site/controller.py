@@ -373,7 +373,7 @@ def get_companies():
 @set_renderers(HTMLRenderer)
 def get_stocks():
     stocks = db.session.query(models.Stock).all()
-    return render_template('requests_list.html', items=stocks)
+    return render_template('stocks_list.html', items=stocks)
 
 
 @mod_site.route('/get_stocks_requests')
@@ -381,4 +381,4 @@ def get_stocks():
 @set_renderers(HTMLRenderer)
 def get_stocks_requests():
     stocks = db.session.query(models.Request).all()
-    return render_template('stocks_list.html', items=stocks)
+    return render_template('requests_list.html', items=stocks)
