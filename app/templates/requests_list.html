@@ -95,7 +95,7 @@
                             <td>{{ item.stock.company.symbol }}</td>
                             <td>{{ item.customer.first_name }} | {{ item.customer.last_name }}</td>
                             <td>
-                                {% if broker %}
+                                {% if item.broker %}
                                 Confirmed
                                 {% else %}
                                 Pending
