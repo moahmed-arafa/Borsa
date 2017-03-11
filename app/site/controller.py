@@ -331,6 +331,14 @@ def stock_request_confirm(stock_request_id):
         return redirect(url_for('website.unauthorized_handler'))
 
 
+@mod_site.route('/Requests')
+# route for GetShopItems function here
+@set_renderers(HTMLRenderer)
+def get_requests():
+    requests = db.session.query(models.Request).all()
+    return render_template('companies_list.html', items=requests)
+
+
 @mod_site.route('/get_companies_list')
 # route for GetShopItems function here
 @set_renderers(HTMLRenderer)
