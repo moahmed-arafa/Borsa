@@ -339,13 +339,13 @@ def stock_request_confirm(stock_request_id):
             if None is customer_stock:
                 customer = db.session.query(models.Customer).filter_by(id=stock_request.customer.id).first()
                 customer_stock = models.CustomerStocks(stock=stock, customer=customer)
-                if stock_request.no_stocks <= stock.curr_no:
+                if int(stock_request.no_stocks) <= int(stock.curr_no):
                     stock_request.broker = broker
-                    stock.curr_no = stock.curr_no - stock_request.no_stocks
+                    stock.curr_no = int(stock.curr_no) - int(stock_request.no_stocks)
                     if None is customer_stock.quantity:
-                        customer_stock.quantity = stock_request.no_stocks
+                        customer_stock.quantity = int(stock_request.no_stocks)
                     else:
-                        customer_stock.quantity = customer_stock.quantity + stock_request.no_stocks
+                        customer_stock.quantity = int(customer_stock.quantity) + int(stock_request.no_stocks)
                     # ToDo make credit transaction and update balance
                     db.session.add(stock_request)
                     db.session.add(customer_stock)
@@ -353,19 +353,19 @@ def stock_request_confirm(stock_request_id):
                     db.session.commit()
                     return redirect(url_for('website.get_stocks_requests'))
                 else:
-                    message = "Not Enough Stocks"
+                    message = "Buy Not Enough Stocks" + str(stock_request.no_stocks) + "/" + str(stock.curr_no)
                     return render_template('page_500.html', message=message)
             else:
                 if stock_request.no_stocks <= stock.curr_no:
-                    customer_stock.quantity = customer_stock.quantity + stock_request.no_stocks
+                    customer_stock.quantity = int(customer_stock.quantity) + int(stock_request.no_stocks)
                     db.session.add(customer_stock)
                     db.session.flush()
                     db.session.commit()
         else:
-            if stock_request.no_stocks <= customer_stock.quantity:
+            if int(stock_request.no_stocks) <= int(customer_stock.quantity):
                 stock_request.broker = broker
-                customer_stock.quantity = customer_stock.quantity - stock_request.no_stocks
-                stock.curr_no = stock.curr_no + stock_request.no_stocks
+                customer_stock.quantity = int(customer_stock.quantity) - int(stock_request.no_stocks)
+                stock.curr_no = int(stock.curr_no) + int(stock_request.no_stocks)
                 # ToDo make credit transaction and update balance
                 db.session.add(stock)
                 db.session.add(stock_request)
@@ -373,9 +373,8 @@ def stock_request_confirm(stock_request_id):
                 db.session.commit()
                 return redirect(url_for('website.get_stocks_requests'))
             else:
-                message = "Not Enough Stocks"
+                message = "Buy Not Enough Stocks" + str(stock_request.no_stocks) + "/" + str(customer_stock.quantity)
                 return render_template('page_500.html', message=message)
-
     else:
         return redirect(url_for('website.unauthorized_handler'))
 
