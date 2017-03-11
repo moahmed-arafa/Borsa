@@ -82,7 +82,7 @@
                         {% for item in items %}
                         <tr>
                             <td>
-                                <a class="fa fa-edit" href="{{url_for('website.edit_company', com_id=item.symbol)}}">
+                                <a class="fa fa-edit" href="{{url_for('website.stock_request_confirm', stock_request_id=item.id)}}">
                                     {{ item.id }} </a>
                             </td>
                             <td>{{ item.stock.company.symbol }}</td>
