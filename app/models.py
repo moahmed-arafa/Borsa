@@ -161,6 +161,27 @@ class Broker(db.Model):
     date_add = db.Column(db.DateTime, server_default=db.func.now())
     date_upd = db.Column(db.DateTime, server_default=db.func.now(), onupdate=db.func.now())
 
+    def get_id(self):
+        return self.id
+
+    def get_email(self):
+        return self.email
+
+    def is_active(self):
+        return self.active
+
+    @property
+    def is_active(self):
+        return True
+
+    @property
+    def is_authenticated(self):
+        return True
+
+    @property
+    def is_anonymous(self):
+        return False
+
     @property
     def serialize(self):
         # Returns object data in easily serialized format
