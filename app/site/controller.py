@@ -120,7 +120,7 @@ def update_stock():
                     db.session.add(sv)
                     print(str(stock.id) + ":" + str(v) + "/" + str(stock.current_value))
                     db.session.commit()
-            time.sleep(7*60)
+            time.sleep(7 * 60)
         return
 
 
@@ -142,7 +142,8 @@ def list_companies_data():
         ColumnDT(models.Company.name + "|" + models.Company.name_ar),
         ColumnDT(models.Company.phone),
         ColumnDT(models.Company.website),
-        ColumnDT("<a class=\"fa fa-edit\" href=\"{{url_for('website.edit_com', tn=" + models.Company.symbol + ")}}\"></a>")
+        ColumnDT(
+            "<a class=\"fa fa-edit\" href=\"{{url_for('website.edit_com', tn=" + models.Company.symbol + ")}}\"></a>")
     ]
 
     # defining the initial query depending on your purpose
@@ -166,7 +167,8 @@ def list_stock_data():
         ColumnDT(models.Stock.init_no),
         ColumnDT(models.Stock.curr_no),
         ColumnDT(models.Stock.type),
-        ColumnDT("<a class=\"fa fa-edit\" href=\"{{url_for('website.edit_com', tn=" + models.Company.symbol + ")}}\"></a>")
+        ColumnDT(
+            "<a class=\"fa fa-edit\" href=\"{{url_for('website.edit_com', tn=" + models.Company.symbol + ")}}\"></a>")
     ]
 
     # defining the initial query depending on your purpose
@@ -305,7 +307,8 @@ def add_stock():
             new_type = request.form.get('type')
             current_value = request.form.get('current_value')
 
-            new_stock = models.Stock(init_no=new_stock_init_value, type=new_type, company=company, current_value=current_value)
+            new_stock = models.Stock(init_no=new_stock_init_value, type=new_type, company=company,
+                                     current_value=current_value)
 
             db.session.add(new_stock)
             db.session.flush()
@@ -330,25 +333,49 @@ def stock_request_confirm(stock_request_id):
         stock_request = db.session.query(models.Request).filter_by(id=stock_request_id).first()
         stock = db.session.query(models.Stock).filter_by(id=stock_request.stock.id).first()
         customer_stock = db.session.query(models.CustomerStocks).filter_by(
-                stock_id=stock_request.stock.id, customer_id=stock_request.customer.id).first()
-        if None is customer_stock:
-            customer = db.session.query(models.Customer).filter_by(id=stock_request.customer.id).first()
-            customer_stock = models.CustomerStocks(stock=stock, customer=customer)
-        if stock_request.no_stocks <= stock.curr_no:
-            broker = db.session.query(models.Broker).filter_by(id=int(current_user.id)).first()
-            stock_request.broker = broker
-            stock.curr_no = stock.curr_no - stock_request.no_stocks
-            if None is customer_stock.quantity:
-                customer_stock.quantity = stock_request.no_stocks
+            stock_id=stock_request.stock.id, customer_id=stock_request.customer.id).first()
+        broker = db.session.query(models.Broker).filter_by(id=int(current_user.id)).first()
+        if stock_request.type == bin(1):
+            if None is customer_stock:
+                customer = db.session.query(models.Customer).filter_by(id=stock_request.customer.id).first()
+                customer_stock = models.CustomerStocks(stock=stock, customer=customer)
+                if stock_request.no_stocks <= stock.curr_no:
+                    stock_request.broker = broker
+                    stock.curr_no = stock.curr_no - stock_request.no_stocks
+                    if None is customer_stock.quantity:
+                        customer_stock.quantity = stock_request.no_stocks
+                    else:
+                        customer_stock.quantity = customer_stock.quantity + stock_request.no_stocks
+                    # ToDo make credit transaction and update balance
+                    db.session.add(stock_request)
+                    db.session.add(customer_stock)
+                    db.session.flush()
+                    db.session.commit()
+                    return redirect(url_for('website.get_stocks_requests'))
+                else:
+                    message = "Not Enough Stocks"
+                    return render_template('page_500.html', message=message)
             else:
-                customer_stock.quantity = customer_stock.quantity + stock_request.no_stocks
-            # ToDo make credit transaction and update balance
-            db.session.add(stock_request)
-            db.session.flush()
-            db.session.commit()
-            return redirect(url_for('website.get_stocks_requests'))
+                if stock_request.no_stocks <= stock.curr_no:
+                    customer_stock.quantity = customer_stock.quantity + stock_request.no_stocks
+                    db.session.add(customer_stock)
+                    db.session.flush()
+                    db.session.commit()
         else:
-            return render_template('page_500.html')
+            if stock_request.no_stocks <= customer_stock.quantity:
+                stock_request.broker = broker
+                customer_stock.quantity = customer_stock.quantity - stock_request.no_stocks
+                stock.curr_no = stock.curr_no + stock_request.no_stocks
+                # ToDo make credit transaction and update balance
+                db.session.add(stock)
+                db.session.add(stock_request)
+                db.session.flush()
+                db.session.commit()
+                return redirect(url_for('website.get_stocks_requests'))
+            else:
+                message = "Not Enough Stocks"
+                return render_template('page_500.html', message=message)
+
     else:
         return redirect(url_for('website.unauthorized_handler'))
 
