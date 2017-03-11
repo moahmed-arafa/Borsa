@@ -323,6 +323,7 @@ def add_stock():
 
 # add new stock
 @mod_site.route('/StockRequestConfirm/<int:stock_request_id>', methods=['GET', 'POST'])
+@set_renderers(HTMLRenderer)
 def stock_request_confirm(stock_request_id):
     if current_user.is_authenticated:
         # broker_id = cu
@@ -345,7 +346,7 @@ def stock_request_confirm(stock_request_id):
             db.session.add(stock_request)
             db.session.flush()
             db.session.commit()
-            return render_template('request_confirmed.html')
+            return redirect(url_for('website.get_stocks_requests'))
         else:
             return render_template('page_500.html')
     else:
