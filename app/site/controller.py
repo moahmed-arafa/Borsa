@@ -67,6 +67,27 @@ def welcome():
         return redirect(url_for('website.login_broker'))
 
 
+@mod_site.route("/login_broker", methods=["GET", "POST"])
+@set_renderers(HTMLRenderer)
+def login_broker():
+    if request.method == 'POST':
+        print("POST")
+        errors = []
+        username = request.form.get('username')
+        password = request.form.get('password')
+        print(username + ":" + password)
+        agent = db.session.query(models.Broker).filter_by(email=username, passwd=password).first()
+        if agent is None:
+            flash('Username or Password is invalid')
+            return redirect(url_for('website.welcome'))
+        else:
+            login_user(agent)
+            # flash('Logged in successfully')
+            return redirect(request.args.get('next') or url_for('website.welcome'))
+    else:
+        return render_template('login.html')
+
+
 @mod_site.route('/signUpBroker', methods=['GET', 'POST'])
 # route for GetShopItems function here
 @set_renderers(HTMLRenderer)
