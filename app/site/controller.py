@@ -345,7 +345,7 @@ def stock_request_confirm(stock_request_id):
                     curr_no = stock.init_no
                 if int(stock_request.no_stocks) <= int(curr_no):
                     stock_request.broker = broker
-                    stock.curr_no = int(stock.curr_no) - int(stock_request.no_stocks)
+                    stock.curr_no = int(curr_no) - int(stock_request.no_stocks)
                     if None is customer_stock.quantity:
                         customer_stock.quantity = int(stock_request.no_stocks)
                     else:
@@ -369,7 +369,11 @@ def stock_request_confirm(stock_request_id):
             if int(stock_request.no_stocks) <= int(customer_stock.quantity):
                 stock_request.broker = broker
                 customer_stock.quantity = int(customer_stock.quantity) - int(stock_request.no_stocks)
-                stock.curr_no = int(stock.curr_no) + int(stock_request.no_stocks)
+                if stock.curr_no:
+                    curr_no = stock.curr_no
+                else:
+                    curr_no = stock.init_no
+                stock.curr_no = int(curr_no) + int(stock_request.no_stocks)
                 # ToDo make credit transaction and update balance
                 db.session.add(stock)
                 db.session.add(stock_request)
