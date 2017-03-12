@@ -335,14 +335,14 @@ def stock_request_confirm(stock_request_id):
         customer_stock = db.session.query(models.CustomerStocks).filter_by(
             stock_id=stock_request.stock.id, customer_id=stock_request.customer.id).first()
         broker = db.session.query(models.Broker).filter_by(id=int(current_user.id)).first()
+        if stock.curr_no:
+            curr_no = stock.curr_no
+        else:
+            curr_no = stock.init_no
         if stock_request.type == bin(1):
             if None is customer_stock:
                 customer = db.session.query(models.Customer).filter_by(id=stock_request.customer.id).first()
                 customer_stock = models.CustomerStocks(stock=stock, customer=customer)
-                if stock.curr_no:
-                    curr_no = stock.curr_no
-                else:
-                    curr_no = stock.init_no
                 if int(stock_request.no_stocks) <= int(curr_no):
                     stock_request.broker = broker
                     stock.curr_no = int(curr_no) - int(stock_request.no_stocks)
@@ -360,19 +360,16 @@ def stock_request_confirm(stock_request_id):
                     message = "Buy Not Enough Stocks" + str(stock_request.no_stocks) + "/" + str(stock.curr_no)
                     return render_template('page_500.html', message=message)
             else:
-                if stock_request.no_stocks <= stock.curr_no:
+                if stock_request.no_stocks <= curr_no:
                     customer_stock.quantity = int(customer_stock.quantity) + int(stock_request.no_stocks)
                     db.session.add(customer_stock)
                     db.session.flush()
                     db.session.commit()
+                    return redirect(url_for('website.get_stocks_requests'))
         else:
             if int(stock_request.no_stocks) <= int(customer_stock.quantity):
                 stock_request.broker = broker
                 customer_stock.quantity = int(customer_stock.quantity) - int(stock_request.no_stocks)
-                if stock.curr_no:
-                    curr_no = stock.curr_no
-                else:
-                    curr_no = stock.init_no
                 stock.curr_no = int(curr_no) + int(stock_request.no_stocks)
                 # ToDo make credit transaction and update balance
                 db.session.add(stock)
