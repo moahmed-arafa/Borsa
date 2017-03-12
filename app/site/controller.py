@@ -362,6 +362,8 @@ def stock_request_confirm(stock_request_id):
             else:
                 if stock_request.no_stocks <= curr_no:
                     customer_stock.quantity = int(customer_stock.quantity) + int(stock_request.no_stocks)
+                    stock_request.broker = broker
+                    db.session.add(stock_request)
                     db.session.add(customer_stock)
                     db.session.flush()
                     db.session.commit()
