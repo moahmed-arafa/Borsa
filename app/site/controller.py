@@ -112,7 +112,7 @@ def update_stock():
         while True:
             for stock in stocks:
                 v = stock.current_value
-                new_value = random.uniform(v - 10, v + 10)
+                new_value = random.uniform(v - 100, v + 10)
                 if new_value > 0:
                     stock.current_value = new_value
                     stock.last_value = v
@@ -307,8 +307,11 @@ def add_stock():
             new_type = request.form.get('type')
             current_value = request.form.get('current_value')
 
-            new_stock = models.Stock(init_no=new_stock_init_value, type=new_type, company=company,
-                                     current_value=current_value)
+            if type == 2:
+                new_stock = models.Stock(init_no=new_stock_init_value, type=new_type, current_value=current_value)
+            else:
+                new_stock = models.Stock(init_no=new_stock_init_value, type=new_type, company=company,
+                                         current_value=current_value)
 
             db.session.add(new_stock)
             db.session.flush()
