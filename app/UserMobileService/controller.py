@@ -307,7 +307,7 @@ def get_stock_values():
         stock_id = req_json['stock_id']
         if stock_id:
             value = db.session.query(models.StockValues).filter_by(stock_id=stock_id).all()
-            return json.dumps([item.serialize for item in value], default=date_handler)
+            return [item.serialize for item in value]
         else:
             return {"response": -2}
     return {"response": -400}
